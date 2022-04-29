@@ -1,0 +1,81 @@
+---
+title: "Data Sourcing"
+author: "Sam Pastoriza"
+date: "4/28/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+if (!require("pacman")) {
+  install.packages("pacman")
+}
+
+pacman::p_load(tidyverse, lubridate, data.table)
+```
+
+## Data Sourcing (Contracts 1)
+
+```{r}
+contracts.1.df <- fread('./AllContracts/FY(All)_All_Contracts_Delta_20220408_1.csv', header = TRUE)
+head(contracts.1.df)
+```
+
+## Initial Data Cleaning (Contracts 1)
+```{r}
+cleaned.contracts.1.df <- contracts.1.df %>%
+  select(product_or_service_code, 
+         product_or_service_code_description, 
+         parent_award_agency_name,
+         awarding_agency_name, 
+         recipient_parent_name, 
+         recipient_name, 
+         award_description, 
+         award_type,
+         domestic_or_foreign_entity_code,
+         domestic_or_foreign_entity,
+         potential_total_value_of_award,
+         action_date,
+         usaspending_permalink) %>%
+  mutate(action_date = as.Date(action_date),
+         award_type = as.factor(award_type),
+         domestic_or_foreign_entity_code = as.factor(domestic_or_foreign_entity_code),
+         domestic_or_foreign_entity = as.factor(domestic_or_foreign_entity))
+```
+
+
+## Data Sourcing (Contracts 2)
+
+```{r}
+# Read in contract 2
+contracts.2.df <- read.csv('./AllContracts/FY(All)_All_Contracts_Delta_20220408_2.csv')
+head(contracts.2.df)
+```
+
+## Initial Data Cleaning (Contracts 2)
+```{r}
+cleaned.contracts.2.df <- contracts.2.df %>%
+  select(product_or_service_code, 
+         product_or_service_code_description, 
+         parent_award_agency_name,
+         awarding_agency_name, 
+         recipient_parent_name, 
+         recipient_name, 
+         award_description, 
+         award_type,
+         domestic_or_foreign_entity_code,
+         domestic_or_foreign_entity,
+         potential_total_value_of_award,
+         action_date,
+         usaspending_permalink) %>%
+  mutate(action_date = as.Date(action_date),
+         award_type = as.factor(award_type),
+         domestic_or_foreign_entity_code = as.factor(domestic_or_foreign_entity_code),
+         domestic_or_foreign_entity = as.factor(domestic_or_foreign_entity))
+```
+
+## Write output to file
+
+```{r}
+write.csv(rbind(cleaned.contracts.1.df, cleaned.contracts.2.df), 'CleanedContracts/cleaned_contracts.csv', row.names = FALSE)
+```

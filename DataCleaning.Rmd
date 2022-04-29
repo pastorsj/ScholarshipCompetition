@@ -1,0 +1,21 @@
+---
+title: "Data Cleaning"
+author: "Sam Pastoriza"
+date: "4/29/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+if (!require("pacman")) {
+  install.packages("pacman")
+}
+
+pacman::p_load(tidyverse, lubridate, data.table)
+```
+
+## Data Cleaning
+
+```{r}
+
+```

@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.docx
+*.pdf
+AllContracts/
+CleanedContracts/
+Dataset_Contract_Sub-Awards.csv
