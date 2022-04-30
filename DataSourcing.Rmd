@@ -36,7 +36,10 @@ cleaned.contracts.1.df <- contracts.1.df %>%
          domestic_or_foreign_entity,
          potential_total_value_of_award,
          action_date,
-         usaspending_permalink) %>%
+         usaspending_permalink,
+         award_id_piid,
+         parent_award_id_piid,
+         contract_award_unique_key) %>%
   mutate(action_date = as.Date(action_date),
          award_type = as.factor(award_type),
          domestic_or_foreign_entity_code = as.factor(domestic_or_foreign_entity_code),
@@ -67,7 +70,10 @@ cleaned.contracts.2.df <- contracts.2.df %>%
          domestic_or_foreign_entity,
          potential_total_value_of_award,
          action_date,
-         usaspending_permalink) %>%
+         usaspending_permalink,
+         award_id_piid,
+         parent_award_id_piid,
+         contract_award_unique_key) %>%
   mutate(action_date = as.Date(action_date),
          award_type = as.factor(award_type),
          domestic_or_foreign_entity_code = as.factor(domestic_or_foreign_entity_code),
