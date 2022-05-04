@@ -1,0 +1,22 @@
+---
+title: "Data Exploration"
+author: "Sam Pastoriza"
+date: "5/4/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+if (!require("pacman")) {
+  install.packages("pacman")
+}
+
+pacman::p_load(tidyverse, lubridate)
+```
+
+## Data Exploration
+
+```{r}
+contract_df = read.csv('./Dataset_Contract_Sub-Awards.csv')
+contract_df
+```
