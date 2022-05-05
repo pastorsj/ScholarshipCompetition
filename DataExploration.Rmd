@@ -12,11 +12,207 @@ if (!require("pacman")) {
 }
 
 pacman::p_load(tidyverse, lubridate)
+options(scipen = 999)
 ```
 
 ## Data Exploration
 
 ```{r}
-contract_df = read.csv('./Dataset_Contract_Sub-Awards.csv')
-contract_df
+contract.df = read.csv('./Dataset_Contract_Sub-Awards.csv') %>%
+  mutate(prime_award_awarding_agency_name = as.factor(prime_award_awarding_agency_name),
+         prime_award_awarding_sub_agency_name = as.factor(prime_award_awarding_sub_agency_name),
+         prime_award_funding_office_name = as.factor(prime_award_funding_office_name),
+         prime_award_funding_agency_name = as.factor(prime_award_funding_agency_name),
+         prime_award_funding_sub_agency_name = as.factor(prime_award_funding_sub_agency_name),
+         prime_awardee_parent_name = as.factor(prime_awardee_parent_name),
+         prime_awardee_name = as.factor(prime_awardee_name),
+         subawardee_parent_name = as.factor(subawardee_parent_name),
+         subawardee_name = as.factor(subawardee_name),
+         subaward_action_date = mdy(subaward_action_date))
+contract.df$subcontract_id = 1:nrow(contract.df)
+contract.df
 ```
+
+## Basic Statistics
+
+```{r}
+# Number of sub contracts
+nrow(contract.df)
+# Number of unique contractors
+contract.df %>%
+  count(prime_awardee_name)
+# Number of unique sub contractors
+contract.df %>%
+  count(prime_awardee_name)
+# Most expensive contract
+contract.df %>%
+  arrange(desc(subaward_amount)) %>%
+  select(prime_awardee_name, subawardee_name, subaward_amount, subaward_description)
+# Most expensive company plus number of contracts
+contract.df %>%
+  group_by(subawardee_name) %>%
+  summarize(NumberOfContracts = n(),
+            TotalCostOfAllContracts = sum(subaward_amount)) %>%
+  arrange(desc(TotalCostOfAllContracts))
+  
+```
+
+## Sunburst Chart
+
+```{r}
+network.awards.df <- contract.df %>%
+  select(prime_award_awarding_agency_name,
+         prime_award_awarding_sub_agency_name,
+         prime_award_funding_office_name,
+         prime_award_funding_agency_name,
+         prime_award_funding_sub_agency_name,
+         prime_awardee_parent_name,
+         prime_awardee_name,
+         subawardee_parent_name,
+         subawardee_name,
+         subaward_amount)
+network.awards.df
+```
+
+```{r}
+sunburst.df <- data.frame(parent = c(""), id = c("All"), name = 'DOD', value = c(0), final_layer = FALSE)
+
+first.layer <- network.awards.df %>%
+  group_by(prime_award_awarding_sub_agency_name) %>%
+  summarize(value = sum(subaward_amount)) %>%
+  mutate(
+    parent = "All",
+    id = paste("All", prime_award_awarding_sub_agency_name, sep = "."),
+    name = prime_award_awarding_sub_agency_name,
+    final_layer = FALSE
+  ) %>%
+  ungroup() %>%
+  select(-prime_award_awarding_sub_agency_name)
+
+second.layer <- network.awards.df %>%
+  group_by(prime_award_awarding_sub_agency_name, prime_awardee_name) %>%
+  summarize(value = sum(subaward_amount)) %>%
+  mutate(
+    parent = paste("All", prime_award_awarding_sub_agency_name, sep = "."),
+    id = paste("All", prime_award_awarding_sub_agency_name, prime_awardee_name, sep = "."),
+    name = prime_awardee_name,
+    final_layer = FALSE
+  ) %>%
+  ungroup() %>%
+  select(-prime_award_awarding_sub_agency_name, -prime_awardee_name)
+
+third.layer <- network.awards.df %>%
+  group_by(prime_award_awarding_sub_agency_name, prime_awardee_name, subawardee_name) %>%
+  summarize(value = sum(subaward_amount)) %>%
+  mutate(
+    parent = paste("All", prime_award_awarding_sub_agency_name, prime_awardee_name, sep = "."),
+    id = paste("All", prime_award_awarding_sub_agency_name, prime_awardee_name, subawardee_name, sep = "."),
+    name = subawardee_name,
+    final_layer = TRUE
+  ) %>%
+  ungroup() %>%
+  select(-prime_award_awarding_sub_agency_name, -prime_awardee_name, -subawardee_name)
+
+sunburst.viz.df <- do.call("rbind", list(sunburst.df, first.layer, second.layer, third.layer))
+sunburst.viz.df
+
+write.csv(sunburst.viz.df %>% mutate(value = as.character(value)), "./visualization_data/award_relationships.csv", row.names = FALSE)
+```
+
+## Subcontracts over time
+
+```{r}
+cost.contracts.df <- contract.df %>%
+  select(subawardee_name, subaward_action_date, subaward_amount, subaward_description) %>%
+  arrange(subaward_action_date) %>%
+  mutate(total_cost = cumsum(subaward_amount))
+
+write.csv(cost.contracts.df %>% mutate(total_cost = as.character(total_cost)), "./visualization_data/contract_costs_time.csv", row.names = FALSE)
+```
+
+## Subcontract Network
+
+```{r}
+top.subcontracts.df <- contract.df %>%
+  group_by(subawardee_name) %>%
+  summarize(NumberOfContracts = n(),
+            TotalCostOfAllContracts = sum(subaward_amount)) %>%
+  arrange(desc(TotalCostOfAllContracts)) %>%
+  slice(1:8)
+
+second.layer <- contract.df %>%
+  select(subcontract_id, subawardee_name) %>%
+  filter(subawardee_name %in% top.subcontracts.df$subawardee_name) %>%
+  mutate(from = as.character(subcontract_id),
+         to = as.character(subawardee_name)) %>%
+  select(from, to)
+
+first.layer <- contract.df %>%
+  select(subcontract_id, prime_awardee_name) %>%
+  filter(subcontract_id %in% second.layer$from) %>%
+  mutate(from = as.character(prime_awardee_name),
+         to = as.character(subcontract_id)) %>%
+  select(from, to)
+
+write.csv(do.call('rbind', list(first.layer, second.layer)), "./visualization_data/subcontract_network.csv", row.names = FALSE)
+```
+
+## Subcontract Nodes
+
+```{r}
+all.costs.df <- contract.df %>%
+  select(subcontract_id, subaward_description, subaward_amount) %>%
+  rename(id = subcontract_id,
+         description = subaward_description,
+         cost = subaward_amount) %>%
+  mutate(type = 'subcontract',
+         name = description) %>%
+  select(id, name, description, cost, type)
+all.costs.df[nrow(all.costs.df) + 1,] <- c(as.character(contract.df$prime_awardee_name[1]), 
+                                           as.character(contract.df$prime_awardee_name[1]), 
+                                           as.character(contract.df$prime_award_description[1]), 
+                                           contract.df$prime_award_amount[1], 
+                                           'contractee')
+
+# Scaled radius
+a <- 10
+b <- 50
+all.costs.df <- all.costs.df %>%
+  select(id, name, description, cost, type) %>%
+  mutate(cost = as.numeric(cost)) %>%
+  mutate(scaled_radius = round(((b - a) * (cost - min(.$cost))) / (max(.$cost) - min(.$cost)), digits = 0) + a)
+
+all.subcontracters.df <- contract.df %>%
+  group_by(subawardee_name) %>%
+  count() %>%
+  ungroup() %>%
+  mutate(id = subawardee_name,
+         name = subawardee_name,
+         description = subawardee_name,
+         scaled_radius = 20,
+         cost = 0,
+         type = 'subawardee') %>%
+  select(id, name, description, cost, scaled_radius, type)
+
+
+result.costs.df <- rbind(all.costs.df, all.subcontracters.df) %>%
+  filter(id %in% first.layer$from | 
+         id %in% first.layer$to | 
+         id %in% second.layer$from | 
+         id %in% second.layer$to) %>%
+  mutate(cost = as.character(cost))
+write.csv(result.costs.df, "./visualization_data/all_costs.csv", row.names = FALSE)
+```
+
+## Further contract analysis
+
+```{r}
+# Attempt to do some NLP to remove some of the contracts
+filtered.contract.descriptions <- c('Cost Plus Fixed Fee', 'Firm Fixed Price')
+filtered.contracts.df <- contract.df %>%
+  select(subawardee_name, subaward_description) %>%
+  filter(!(subaward_description %in% filtered.contract.descriptions)) %>%
+  mutate(subawardee_name = as.factor(as.character(subawardee_name)))
+table(filtered.contracts.df$subawardee_name)
+```
+
