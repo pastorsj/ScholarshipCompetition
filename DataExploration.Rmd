@@ -54,7 +54,28 @@ contract.df %>%
   summarize(NumberOfContracts = n(),
             TotalCostOfAllContracts = sum(subaward_amount)) %>%
   arrange(desc(TotalCostOfAllContracts))
-  
+```
+
+## Subcontracts over time
+
+```{r}
+cost.contracts.df <- contract.df %>%
+  select(subawardee_name, subaward_action_date, subaward_amount, subaward_description) %>%
+  arrange(subaward_action_date) %>%
+  mutate(total_cost = cumsum(subaward_amount))
+
+write.csv(cost.contracts.df %>% mutate(total_cost = as.character(total_cost)), "./visualization_data/contract_costs_time.csv", row.names = FALSE)
+
+# Timeline
+cost.contracts.2.df <- contract.df %>%
+  select(subaward_action_date, subaward_amount) %>%
+  group_by(subaward_action_date) %>%
+  summarize(contracts_sold = n(),
+            total_cost_day = sum(subaward_amount)) %>%
+  arrange(subaward_action_date) %>%
+  mutate(total_cost = cumsum(total_cost_day))
+
+write.csv(cost.contracts.2.df %>% mutate(total_cost = as.character(total_cost)), "./visualization_data/contract_costs_2_time.csv", row.names = FALSE)
 ```
 
 ## Sunburst Chart
@@ -73,6 +94,7 @@ network.awards.df <- contract.df %>%
          subaward_amount)
 network.awards.df
 ```
+
 
 ```{r}
 sunburst.df <- data.frame(parent = c(""), id = c("All"), name = 'DOD', value = c(0), final_layer = FALSE)
@@ -117,17 +139,6 @@ sunburst.viz.df <- do.call("rbind", list(sunburst.df, first.layer, second.layer,
 sunburst.viz.df
 
 write.csv(sunburst.viz.df %>% mutate(value = as.character(value)), "./visualization_data/award_relationships.csv", row.names = FALSE)
-```
-
-## Subcontracts over time
-
-```{r}
-cost.contracts.df <- contract.df %>%
-  select(subawardee_name, subaward_action_date, subaward_amount, subaward_description) %>%
-  arrange(subaward_action_date) %>%
-  mutate(total_cost = cumsum(subaward_amount))
-
-write.csv(cost.contracts.df %>% mutate(total_cost = as.character(total_cost)), "./visualization_data/contract_costs_time.csv", row.names = FALSE)
 ```
 
 ## Subcontract Network
@@ -213,7 +224,6 @@ filtered.contract.descriptions <- c('Cost Plus Fixed Fee', 'Firm Fixed Price')
 filtered.contracts.df <- contract.df %>%
   filter(!(subaward_description %in% filtered.contract.descriptions)) %>%
   mutate(subawardee_name = as.factor(as.character(subawardee_name)))
-table(filtered.contracts.df$subaward_description)
 ```
 
 ```{r}
@@ -345,7 +355,10 @@ description.filtered.contracts.df <- cbind(description.filtered.contracts.df, co
 words.group.df <- description.filtered.contracts.df %>% 
   select(number_of_words) %>%
   group_by(number_of_words) %>%
-  count(name = 'value')
+  count(name = 'value') %>%
+  ungroup() %>%
+  complete(number_of_words = 1:7, fill = list(value = 0))
+
 
 write.csv(words.group.df, "./visualization_data/word_counts.csv", row.names = FALSE)
 ```

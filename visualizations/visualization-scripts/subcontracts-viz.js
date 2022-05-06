@@ -5,7 +5,7 @@
     : "https://s3.amazonaws.com/datastore.portfolio.sampastoriza.com";
   // Fetch the data from AWS S3 and parse it
   const parsedData = await fetch(
-    `${url}/visualization_data/contract_costs_time.csv`
+    `${url}/visualization_data/contract_costs_2_time.csv`
   )
     .then((result) => result.text())
     .then((text) => Papa.parse(text, { header: true, skipEmptyLines: true }))
@@ -15,10 +15,20 @@
   const seriesData = [
     {
       name: "Subcontracts",
-      data: parsedData.map((datum) => ({
-        name: datum.subaward_action_date,
-        y: parseInt(datum.total_cost),
-      })),
+      data: parsedData
+        .map((datum) => ({
+          name: new Date(datum.subaward_action_date),
+          y: parseInt(datum.total_cost),
+        }))
+        .map((datum) => {
+          datum.name = Date.UTC(
+            datum.name.getUTCFullYear(),
+            datum.name.getUTCMonth(),
+            datum.name.getUTCDate()
+          );
+          return datum;
+        })
+        .map((datum) => [datum.name, datum.y]),
     },
   ];
 
@@ -37,7 +47,7 @@
       type: "area",
     },
     title: {
-      text: "Subcontracts over time",
+      text: "Subcontract Spending (2016-2021)",
     },
     subtitle: {
       text: 'Source: <a href="https://www.usaspending.gov/award/CONT_AWD_HR001117C0025_9700_-NONE-_-NONE-/" target="_blank">USA Spending</a>',
@@ -48,19 +58,7 @@
       },
     },
     xAxis: {
-      accessibility: {
-        rangeDescription: "Range: 2016 to 2019",
-      },
-      labels: {
-        enabled: true,
-        formatter: function () {
-          // Format the axis tick labels using each month
-          //   return seriesData[0].data[this.value].name;
-          console.log("Value", this.value);
-          console.log("This", this);
-          return this.value;
-        },
-      },
+      type: "datetime",
       title: {
         text: "Date of Subcontract",
       },
@@ -79,7 +77,8 @@
         marker: {
           enabled: true,
           symbol: "circle",
-          radius: 2,
+          radius: 4,
+          fillColor: "orange",
         },
       },
     },
