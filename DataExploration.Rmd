@@ -11,7 +11,7 @@ if (!require("pacman")) {
   install.packages("pacman")
 }
 
-pacman::p_load(tidyverse, lubridate)
+pacman::p_load(tidyverse, lubridate, tm, qdapDictionaries)
 options(scipen = 999)
 ```
 
@@ -174,32 +174,33 @@ all.costs.df[nrow(all.costs.df) + 1,] <- c(as.character(contract.df$prime_awarde
                                            contract.df$prime_award_amount[1], 
                                            'contractee')
 
-# Scaled radius
-a <- 10
-b <- 50
-all.costs.df <- all.costs.df %>%
-  select(id, name, description, cost, type) %>%
-  mutate(cost = as.numeric(cost)) %>%
-  mutate(scaled_radius = round(((b - a) * (cost - min(.$cost))) / (max(.$cost) - min(.$cost)), digits = 0) + a)
-
 all.subcontracters.df <- contract.df %>%
+  select(subawardee_name, subaward_amount) %>%
   group_by(subawardee_name) %>%
-  count() %>%
+  summarize(cost = sum(subaward_amount)) %>%
   ungroup() %>%
   mutate(id = subawardee_name,
          name = subawardee_name,
          description = subawardee_name,
-         scaled_radius = 20,
-         cost = 0,
          type = 'subawardee') %>%
-  select(id, name, description, cost, scaled_radius, type)
-
-
+  select(id, name, description, cost, type)
+  
 result.costs.df <- rbind(all.costs.df, all.subcontracters.df) %>%
   filter(id %in% first.layer$from | 
          id %in% first.layer$to | 
          id %in% second.layer$from | 
-         id %in% second.layer$to) %>%
+         id %in% second.layer$to)
+
+# Scaled radius
+a <- 10
+b <- 50
+result.costs.df <- result.costs.df %>%
+  select(id, name, description, cost, type) %>%
+  mutate(cost = as.numeric(cost)) %>%
+  mutate(scaled_radius = round(((b - a) * (cost - min(.$cost))) / (max(.$cost) - min(.$cost)), digits = 0) + a)
+
+
+result.costs.df <- result.costs.df %>%
   mutate(cost = as.character(cost))
 write.csv(result.costs.df, "./visualization_data/all_costs.csv", row.names = FALSE)
 ```
@@ -210,9 +211,120 @@ write.csv(result.costs.df, "./visualization_data/all_costs.csv", row.names = FAL
 # Attempt to do some NLP to remove some of the contracts
 filtered.contract.descriptions <- c('Cost Plus Fixed Fee', 'Firm Fixed Price')
 filtered.contracts.df <- contract.df %>%
-  select(subawardee_name, subaward_description) %>%
   filter(!(subaward_description %in% filtered.contract.descriptions)) %>%
   mutate(subawardee_name = as.factor(as.character(subawardee_name)))
-table(filtered.contracts.df$subawardee_name)
+table(filtered.contracts.df$subaward_description)
+```
+
+```{r}
+top.filtered.subcontracts.df <- filtered.contracts.df %>%
+  group_by(subawardee_name) %>%
+  summarize(NumberOfContracts = n(),
+            TotalCostOfAllContracts = sum(subaward_amount)) %>%
+  arrange(desc(TotalCostOfAllContracts)) %>%
+  slice(1:10)
+
+filtered.second.layer <- filtered.contracts.df %>%
+  select(subcontract_id, subawardee_name) %>%
+  filter(subawardee_name %in% top.filtered.subcontracts.df$subawardee_name) %>%
+  mutate(from = as.character(subcontract_id),
+         to = as.character(subawardee_name)) %>%
+  select(from, to)
+
+filtered.first.layer <- filtered.contracts.df %>%
+  select(subcontract_id, prime_awardee_name) %>%
+  filter(subcontract_id %in% filtered.second.layer$from) %>%
+  mutate(from = as.character(prime_awardee_name),
+         to = as.character(subcontract_id)) %>%
+  select(from, to)
+
+write.csv(do.call('rbind', list(filtered.first.layer, filtered.second.layer)), "./visualization_data/filtered_subcontract_network.csv", row.names = FALSE)
+```
+
+```{r}
+all.filtered.costs.df <- filtered.contracts.df %>%
+  select(subcontract_id, subaward_description, subaward_amount) %>%
+  rename(id = subcontract_id,
+         description = subaward_description,
+         cost = subaward_amount) %>%
+  mutate(type = 'subcontract',
+         name = description) %>%
+  select(id, name, description, cost, type)
+all.filtered.costs.df[nrow(all.filtered.costs.df) + 1,] <- c(as.character(contract.df$prime_awardee_name[1]), 
+                                                             as.character(contract.df$prime_awardee_name[1]), 
+                                                             as.character(contract.df$prime_award_description[1]), 
+                                                             contract.df$prime_award_amount[1], 
+                                                             'contractee')
+
+all.filtered.subcontracters.df <- filtered.contracts.df %>%
+  select(subawardee_name, subaward_amount) %>%
+  group_by(subawardee_name) %>%
+  summarize(cost = sum(subaward_amount)) %>%
+  ungroup() %>%
+  mutate(id = subawardee_name,
+         name = subawardee_name,
+         description = subawardee_name,
+         type = 'subawardee') %>%
+  select(id, name, description, cost, type)
+
+result.filtered.costs.df <- rbind(all.filtered.costs.df, all.filtered.subcontracters.df) %>%
+  filter(id %in% filtered.first.layer$from | 
+         id %in% filtered.first.layer$to | 
+         id %in% filtered.second.layer$from | 
+         id %in% filtered.second.layer$to)
+
+# Scaled radius
+a <- 10
+b <- 50
+result.filtered.costs.df <- result.filtered.costs.df %>%
+  select(id, name, description, cost, type) %>%
+  mutate(cost = as.numeric(cost)) %>%
+  mutate(scaled_radius = round(((b - a) * (cost - min(.$cost))) / (max(.$cost) - min(.$cost)), digits = 0) + a)
+
+
+result.filtered.costs.df <- result.filtered.costs.df %>%
+  mutate(cost = as.character(cost))
+write.csv(result.filtered.costs.df, "./visualization_data/all_filtered_costs.csv", row.names = FALSE)
+```
+
+## Word Analysis
+```{r}
+vcorpus <- VCorpus(VectorSource(filtered.contracts.df$subaward_description))
+toSpace <- content_transformer(function(x, pattern) gsub(pattern, " ", x))
+vcorpus <- tm_map(vcorpus, toSpace, "&")
+vcorpus <- tm_map(vcorpus, removePunctuation)
+vcorpus <- tm_map(vcorpus, removeNumbers)
+vcorpus <- tm_map(vcorpus, removeWords, stopwords("english"))
+vcorpus <- tm_map(vcorpus, content_transformer(tolower))
+vcorpus <- tm_map(vcorpus, stripWhitespace)
+
+dtm <- DocumentTermMatrix(vcorpus, control = list(wordLengths = c(3, 20)))
+
+dtm.matrix <- as.matrix(dtm)
+dtm.sorted.matrix <- sort(colSums(dtm.matrix), decreasing = TRUE)
+descriptions.df <- data.frame(words = names(dtm.sorted.matrix), freq = dtm.sorted.matrix) %>%
+  filter(words %in% GradyAugmented)
+descriptions.df
+
+# Understanding the descriptions
+write.csv(descriptions.df, "./visualization_data/filtered_descriptions.csv", row.names = FALSE)
+```
+
+## Create a network for the important words
+
+```{r}
+# Based on the wordcloud, these seem like the most important contracts
+important.words <- c('batteries', 'antenna', 'missile', 'cable', 'encoders', 
+                     'lithium', 'chargers', 'connector', 'detonator', 'explosive',
+                     'fuselage', 'launchers', 'receivers', 'titanium', 'wire', 'adaptors',
+                     'bolts', 'computer', 'fasteners', 'fuses', 'gears', 'metal', 'motors',
+                     'nuts', 'pumps', 'pyrotechnic', 'rocket', 'rubber', 
+                     'seals', 'transmitters', 'valves', 'washers', 'shafts')
+important.words.grep <- paste(important.words, collapse = '|')
+
+description.filtered.contracts.df <- filtered.contracts.df %>%
+  filter(grepl(important.words.grep, subaward_description, ignore.case = TRUE))
+
+description.filtered.contracts.df$subaward_description
 ```
 

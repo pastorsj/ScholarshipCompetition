@@ -1,0 +1,74 @@
+"id","name","description","cost","type","scaled_radius"
+"1","Detonator&Initiator, Fuselage, Gen Structural Assys, Molded Rubber&O Ring, Non-complex Machined, NRE - Other, Seals, Tech/Eng Services, Wire Cable.","Detonator&Initiator, Fuselage, Gen Structural Assys, Molded Rubber&O Ring, Non-complex Machined, NRE - Other, Seals, Tech/Eng Services, Wire Cable.","62696821","subcontract",24
+"2","Detonator&Initiator, Fuselage, Gen Structural Assys, Molded Rubber&O Ring, Non-complex Machined, NRE - Other, Seals, Tech/Eng Services, Wire Cable.","Detonator&Initiator, Fuselage, Gen Structural Assys, Molded Rubber&O Ring, Non-complex Machined, NRE - Other, Seals, Tech/Eng Services, Wire Cable.","60448995","subcontract",24
+"16","NRE - Other.","NRE - Other.","4945440","subcontract",11
+"20","NRE - Other.","NRE - Other.","2979529","subcontract",11
+"22","Detonator&Initiator, NRE - Engineering, NRE - Other, NRE - Qualification, S&A Devices.","Detonator&Initiator, NRE - Engineering, NRE - Other, NRE - Qualification, S&A Devices.","2356023","subcontract",11
+"23","Detonator&Initiator, NRE - Engineering, NRE - Other, NRE - Qualification, S&A Devices.","Detonator&Initiator, NRE - Engineering, NRE - Other, NRE - Qualification, S&A Devices.","2356023","subcontract",11
+"25","NRE - Other.","NRE - Other.","2176384","subcontract",10
+"26","NRE - Other.","NRE - Other.","2148728","subcontract",10
+"29","FinsWings&Boattails, NRE - Other, Pyrotechnic Fuses, Rocket Motors.","FinsWings&Boattails, NRE - Other, Pyrotechnic Fuses, Rocket Motors.","1935479","subcontract",10
+"30","FinsWings&Boattails, NRE - Other, Pyrotechnic Fuses, Rocket Motors.","FinsWings&Boattails, NRE - Other, Pyrotechnic Fuses, Rocket Motors.","1935479","subcontract",10
+"34","Explosive Cut Device, NRE - Engineering, NRE - Other.","Explosive Cut Device, NRE - Engineering, NRE - Other.","1147265","subcontract",10
+"35","Explosive Cut Device, NRE - Engineering, NRE - Other.","Explosive Cut Device, NRE - Engineering, NRE - Other.","1147265","subcontract",10
+"36","Couplers, Gen Structural Assys, NRE - Other, Nuts.","Couplers, Gen Structural Assys, NRE - Other, Nuts.","932473","subcontract",10
+"37","Couplers, Gen Structural Assys, NRE - Other, Nuts.","Couplers, Gen Structural Assys, NRE - Other, Nuts.","932473","subcontract",10
+"39","EnvTestEq(Shock/etc), NRE - Engineering, Tech/Eng Services.","EnvTestEq(Shock/etc), NRE - Engineering, Tech/Eng Services.","926271","subcontract",10
+"40","EnvTestEq(Shock/etc), NRE - Engineering, Tech/Eng Services.","EnvTestEq(Shock/etc), NRE - Engineering, Tech/Eng Services.","926271","subcontract",10
+"43","Encoders, NRE - Other.","Encoders, NRE - Other.","893366","subcontract",10
+"44","Encoders, NRE - Other.","Encoders, NRE - Other.","893366","subcontract",10
+"47","Fuselage, Gen Structural Assys, NRE - Other.","Fuselage, Gen Structural Assys, NRE - Other.","784267","subcontract",10
+"48","Fuselage, Gen Structural Assys, NRE - Other.","Fuselage, Gen Structural Assys, NRE - Other.","784267","subcontract",10
+"53","Testing (Non-Prod).","Testing (Non-Prod).","673672","subcontract",10
+"54","Testing (Non-Prod).","Testing (Non-Prod).","673672","subcontract",10
+"61","Cable Assemblies RF, CableAssy&HarnMulti, NRE - Other.","Cable Assemblies RF, CableAssy&HarnMulti, NRE - Other.","504312","subcontract",10
+"63","Time & Material","Time & Material","499468","subcontract",10
+"64","Cable Assemblies RF, CableAssy&HarnMulti, NRE - Other.","Cable Assemblies RF, CableAssy&HarnMulti, NRE - Other.","494312","subcontract",10
+"84","NRE - Other.","NRE - Other.","352687","subcontract",10
+"85","NRE - Other.","NRE - Other.","352687","subcontract",10
+"87","Tech/Eng Services.","Tech/Eng Services.","338484","subcontract",10
+"88","Tech/Eng Services.","Tech/Eng Services.","338484","subcontract",10
+"91","Time & Material","Time & Material","314154","subcontract",10
+"95","Gen Structural Assys, NRE - Engineering.","Gen Structural Assys, NRE - Engineering.","286176","subcontract",10
+"96","Gen Structural Assys, NRE - Engineering.","Gen Structural Assys, NRE - Engineering.","286176","subcontract",10
+"98","Time & Material","Time & Material","265477","subcontract",10
+"100","Explosive Cut Device.","Explosive Cut Device.","230580","subcontract",10
+"101","Explosive Cut Device.","Explosive Cut Device.","230580","subcontract",10
+"109","NRE - Other.","NRE - Other.","199862","subcontract",10
+"112","NRE - Other.","NRE - Other.","197547","subcontract",10
+"113","NRE - Other.","NRE - Other.","197472","subcontract",10
+"125","Time & Material","Time & Material","180147","subcontract",10
+"172","Gen Structural Assys, NRE - Other.","Gen Structural Assys, NRE - Other.","121018","subcontract",10
+"173","Gen Structural Assys, NRE - Other.","Gen Structural Assys, NRE - Other.","121018","subcontract",10
+"197","NRE - Other.","NRE - Other.","99925","subcontract",10
+"199","NRE - Other.","NRE - Other.","98553","subcontract",10
+"202","NRE - Other.","NRE - Other.","91925","subcontract",10
+"208","Custom CCA's, NRE - Other.","Custom CCA's, NRE - Other.","88813","subcontract",10
+"218","CableAssy&HarnMulti, NRE - Other.","CableAssy&HarnMulti, NRE - Other.","84626","subcontract",10
+"219","CableAssy&HarnMulti, NRE - Other.","CableAssy&HarnMulti, NRE - Other.","84626","subcontract",10
+"227","Time & Material","Time & Material","78835","subcontract",10
+"238","Custom CCA's.","Custom CCA's.","71967","subcontract",10
+"242","CableAssy&HarnMulti, NRE - Other.","CableAssy&HarnMulti, NRE - Other.","70147","subcontract",10
+"243","CableAssy&HarnMulti, NRE - Other.","CableAssy&HarnMulti, NRE - Other.","70147","subcontract",10
+"275","NRE - Engineering.","NRE - Engineering.","55915","subcontract",10
+"276","NRE - Engineering.","NRE - Engineering.","55915","subcontract",10
+"284","NRE - Other, Protect&Dust Covers, Rectanglar Connector, S&A Devices.","NRE - Other, Protect&Dust Covers, Rectanglar Connector, S&A Devices.","50371","subcontract",10
+"285","NRE - Other, Protect&Dust Covers, Rectanglar Connector, S&A Devices.","NRE - Other, Protect&Dust Covers, Rectanglar Connector, S&A Devices.","50371","subcontract",10
+"293","CableAssy&HarnMulti, NRE - Other.","CableAssy&HarnMulti, NRE - Other.","49145","subcontract",10
+"304","CableAssy&HarnMulti.","CableAssy&HarnMulti.","46428","subcontract",10
+"312","Encoders.","Encoders.","41145","subcontract",10
+"313","Encoders.","Encoders.","41145","subcontract",10
+"317","CableAssy&HarnMulti.","CableAssy&HarnMulti.","39096","subcontract",10
+"328","Encoders.","Encoders.","31846","subcontract",10
+"329","Encoders.","Encoders.","31846","subcontract",10
+"RAYTHEON COMPANY","RAYTHEON COMPANY","IGF::OT::IGF HYPERSONIC AIR-BREATHING WEAPON CONCEPT (HAWC) PHASE 2","174746702","contractee",50
+"AEROJET ROCKETDYNE, INC.","AEROJET ROCKETDYNE, INC.","AEROJET ROCKETDYNE, INC.","3870958","subawardee",11
+"ALLIANT TECHSYSTEMS OPERATIONS LLC","ALLIANT TECHSYSTEMS OPERATIONS LLC","ALLIANT TECHSYSTEMS OPERATIONS LLC","128356212","subawardee",39
+"DUCOMMUN LABARGE TECHNOLOGIES, INC.","DUCOMMUN LABARGE TECHNOLOGIES, INC.","DUCOMMUN LABARGE TECHNOLOGIES, INC.","1704361","subawardee",10
+"DYNETICS TECHNICAL SOLUTIONS, INC.","DYNETICS TECHNICAL SOLUTIONS, INC.","DYNETICS TECHNICAL SOLUTIONS, INC.","3067888","subawardee",11
+"ENSIGN-BICKFORD AEROSPACE & DEFENSE COMPANY","ENSIGN-BICKFORD AEROSPACE & DEFENSE COMPANY","ENSIGN-BICKFORD AEROSPACE & DEFENSE COMPANY","4712046","subawardee",11
+"L3 TECHNOLOGIES, INC.","L3 TECHNOLOGIES, INC.","L3 TECHNOLOGIES, INC.","1932714","subawardee",10
+"MICRO CRAFT, INC.","MICRO CRAFT, INC.","MICRO CRAFT, INC.","2789257","subawardee",11
+"ORBITAL SCIENCES LLC","ORBITAL SCIENCES LLC","ORBITAL SCIENCES LLC","7924969","subawardee",12
+"PACIFIC SCIENTIFIC ENERGETIC MATERIALS COMPANY (CALIFORNIA) LLC","PACIFIC SCIENTIFIC ENERGETIC MATERIALS COMPANY (CALIFORNIA) LLC","PACIFIC SCIENTIFIC ENERGETIC MATERIALS COMPANY (CALIFORNIA) LLC","5326010","subawardee",11
+"TRI MODELS, INC.","TRI MODELS, INC.","TRI MODELS, INC.","1852542","subawardee",10
