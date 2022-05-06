@@ -11,7 +11,7 @@ if (!require("pacman")) {
   install.packages("pacman")
 }
 
-pacman::p_load(tidyverse, lubridate, tm, qdapDictionaries)
+pacman::p_load(tidyverse, lubridate, tm, qdapDictionaries, stringr)
 options(scipen = 999)
 ```
 
@@ -325,6 +325,188 @@ important.words.grep <- paste(important.words, collapse = '|')
 description.filtered.contracts.df <- filtered.contracts.df %>%
   filter(grepl(important.words.grep, subaward_description, ignore.case = TRUE))
 
-description.filtered.contracts.df$subaward_description
+extracted.words <- lapply(description.filtered.contracts.df$subaward_description, 
+                          FUN = function(x) { str_extract_all(x, regex(important.words.grep, ignore_case = TRUE)) })
+
+compressed.words <- data.frame(extracted_words = '', number_of_words = 0)
+for (word in extracted.words) {
+  compressed.list <- paste(unique(unlist(word)), collapse = ',')
+  number.of.words <- length(unique(unlist(word)))
+  compressed.words <- compressed.words %>% 
+    add_row(extracted_words = compressed.list,
+            number_of_words = number.of.words)
+}
+description.filtered.contracts.df <- cbind(description.filtered.contracts.df, compressed.words[-1, ])
 ```
 
+## Quick viz for understanding breakdown of words
+
+```{r}
+words.group.df <- description.filtered.contracts.df %>% 
+  select(number_of_words) %>%
+  group_by(number_of_words) %>%
+  count(name = 'value')
+
+write.csv(words.group.df, "./visualization_data/word_counts.csv", row.names = FALSE)
+```
+
+
+### Recreate subcontract network (Nodes > 1)
+```{r}
+top.description.based.subcontracts.df <- description.filtered.contracts.df %>%
+  filter(number_of_words > 1) %>%
+  group_by(subawardee_name) %>%
+  summarize(NumberOfContracts = n(),
+            TotalCostOfAllContracts = sum(subaward_amount)) %>%
+  arrange(desc(TotalCostOfAllContracts))
+
+second.description.based.layer <- description.filtered.contracts.df %>%
+  filter(number_of_words > 1) %>%
+  select(subcontract_id, subawardee_name) %>%
+  filter(subawardee_name %in% top.description.based.subcontracts.df$subawardee_name) %>%
+  mutate(from = as.character(subcontract_id),
+         to = as.character(subawardee_name)) %>%
+  select(from, to)
+
+first.description.based.layer <- description.filtered.contracts.df %>%
+  filter(number_of_words > 1) %>%
+  select(subcontract_id, prime_awardee_name) %>%
+  filter(subcontract_id %in% second.description.based.layer$from) %>%
+  mutate(from = as.character(prime_awardee_name),
+         to = as.character(subcontract_id)) %>%
+  select(from, to)
+
+write.csv(do.call('rbind', list(first.description.based.layer, second.description.based.layer)), "./visualization_data/subcontract_description_g1_based_network.csv", row.names = FALSE)
+```
+
+### Recreate Description Based Cost Nodes (Nodes > 1)
+```{r}
+all.filtered.description.based.costs.df <- description.filtered.contracts.df %>%
+  filter(number_of_words > 1) %>%
+  select(subcontract_id, subaward_description, extracted_words, subaward_amount) %>%
+  rename(id = subcontract_id,
+         description = subaward_description,
+         cost = subaward_amount) %>%
+  mutate(type = 'subcontract',
+         name = description,
+         extracted_words = extracted_words) %>%
+  select(id, name, description, extracted_words, cost, type)
+all.filtered.description.based.costs.df[nrow(all.filtered.description.based.costs.df) + 1,] <- c(as.character(contract.df$prime_awardee_name[1]), 
+                                                                                                 as.character(contract.df$prime_awardee_name[1]), 
+                                                                                                 as.character(contract.df$prime_award_description[1]),
+                                                                                                 '',
+                                                                                                 contract.df$prime_award_amount[1], 
+                                                                                                 'contractee')
+
+all.filtered.description.based.subcontracters.df <- description.filtered.contracts.df %>%
+  filter(number_of_words > 1) %>%
+  select(subawardee_name, subaward_amount) %>%
+  group_by(subawardee_name) %>%
+  summarize(cost = sum(subaward_amount)) %>%
+  ungroup() %>%
+  mutate(id = subawardee_name,
+         name = subawardee_name,
+         description = subawardee_name,
+         extracted_words = '',
+         type = 'subawardee') %>%
+  select(id, name, description, extracted_words, cost, type)
+
+result.filtered.description.costs.df <- rbind(all.filtered.description.based.costs.df, all.filtered.description.based.subcontracters.df) %>%
+  filter(id %in% first.description.based.layer$from | 
+         id %in% first.description.based.layer$to | 
+         id %in% second.description.based.layer$from | 
+         id %in% second.description.based.layer$to)
+
+# Scaled radius
+a <- 10
+b <- 50
+result.filtered.description.costs.df <- result.filtered.description.costs.df %>%
+  select(id, name, description, extracted_words, cost, type) %>%
+  mutate(cost = as.numeric(cost)) %>%
+  mutate(scaled_radius = round(((b - a) * (cost - min(.$cost))) / (max(.$cost) - min(.$cost)), digits = 0) + a)
+
+
+result.filtered.description.costs.df <- result.filtered.description.costs.df %>%
+  mutate(cost = as.character(cost))
+write.csv(result.filtered.description.costs.df, "./visualization_data/all_filtered_description_g1_based_costs.csv", row.names = FALSE)
+```
+
+### Recreate subcontract network(Nodes = 1)
+```{r}
+top.description.based.subcontracts.df <- description.filtered.contracts.df %>%
+  filter(number_of_words == 1) %>%
+  group_by(subawardee_name) %>%
+  summarize(NumberOfContracts = n(),
+            TotalCostOfAllContracts = sum(subaward_amount)) %>%
+  arrange(desc(TotalCostOfAllContracts))
+
+second.description.based.layer <- description.filtered.contracts.df %>%
+  filter(number_of_words == 1) %>%
+  select(subcontract_id, subawardee_name) %>%
+  filter(subawardee_name %in% top.description.based.subcontracts.df$subawardee_name) %>%
+  mutate(from = as.character(subcontract_id),
+         to = as.character(subawardee_name)) %>%
+  select(from, to)
+
+first.description.based.layer <- description.filtered.contracts.df %>%
+  filter(number_of_words == 1) %>%
+  select(subcontract_id, prime_awardee_name) %>%
+  filter(subcontract_id %in% second.description.based.layer$from) %>%
+  mutate(from = as.character(prime_awardee_name),
+         to = as.character(subcontract_id)) %>%
+  select(from, to)
+
+write.csv(do.call('rbind', list(first.description.based.layer, second.description.based.layer)), "./visualization_data/subcontract_description_1_based_network.csv", row.names = FALSE)
+```
+
+### Recreate Description Based Cost Nodes (Nodes = 1)
+```{r}
+all.filtered.description.based.costs.df <- description.filtered.contracts.df %>%
+  filter(number_of_words == 1) %>%
+  select(subcontract_id, subaward_description, extracted_words, subaward_amount) %>%
+  rename(id = subcontract_id,
+         description = subaward_description,
+         cost = subaward_amount) %>%
+  mutate(type = 'subcontract',
+         name = description,
+         extracted_words = extracted_words) %>%
+  select(id, name, description, extracted_words, cost, type)
+all.filtered.description.based.costs.df[nrow(all.filtered.description.based.costs.df) + 1,] <- c(as.character(contract.df$prime_awardee_name[1]), 
+                                                                                                 as.character(contract.df$prime_awardee_name[1]), 
+                                                                                                 as.character(contract.df$prime_award_description[1]),
+                                                                                                 '',
+                                                                                                 contract.df$prime_award_amount[1], 
+                                                                                                 'contractee')
+
+all.filtered.description.based.subcontracters.df <- description.filtered.contracts.df %>%
+  filter(number_of_words == 1) %>%
+  select(subawardee_name, subaward_amount) %>%
+  group_by(subawardee_name) %>%
+  summarize(cost = sum(subaward_amount)) %>%
+  ungroup() %>%
+  mutate(id = subawardee_name,
+         name = subawardee_name,
+         description = subawardee_name,
+         extracted_words = '',
+         type = 'subawardee') %>%
+  select(id, name, description, extracted_words, cost, type)
+
+result.filtered.description.costs.df <- rbind(all.filtered.description.based.costs.df, all.filtered.description.based.subcontracters.df) %>%
+  filter(id %in% first.description.based.layer$from | 
+         id %in% first.description.based.layer$to | 
+         id %in% second.description.based.layer$from | 
+         id %in% second.description.based.layer$to)
+
+# Scaled radius
+a <- 10
+b <- 50
+result.filtered.description.costs.df <- result.filtered.description.costs.df %>%
+  select(id, name, description, extracted_words, cost, type) %>%
+  mutate(cost = as.numeric(cost)) %>%
+  mutate(scaled_radius = round(((b - a) * (cost - min(.$cost))) / (max(.$cost) - min(.$cost)), digits = 0) + a)
+
+
+result.filtered.description.costs.df <- result.filtered.description.costs.df %>%
+  mutate(cost = as.character(cost))
+write.csv(result.filtered.description.costs.df, "./visualization_data/all_filtered_description_1_based_costs.csv", row.names = FALSE)
+```

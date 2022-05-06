@@ -1,0 +1,93 @@
+"id","name","description","extracted_words","cost","type","scaled_radius"
+"22","Detonator&Initiator, NRE - Engineering, NRE - Other, NRE - Qualification, S&A Devices.","Detonator&Initiator, NRE - Engineering, NRE - Other, NRE - Qualification, S&A Devices.","Detonator","2356023","subcontract",11
+"23","Detonator&Initiator, NRE - Engineering, NRE - Other, NRE - Qualification, S&A Devices.","Detonator&Initiator, NRE - Engineering, NRE - Other, NRE - Qualification, S&A Devices.","Detonator","2356023","subcontract",11
+"34","Explosive Cut Device, NRE - Engineering, NRE - Other.","Explosive Cut Device, NRE - Engineering, NRE - Other.","Explosive","1147265","subcontract",10
+"35","Explosive Cut Device, NRE - Engineering, NRE - Other.","Explosive Cut Device, NRE - Engineering, NRE - Other.","Explosive","1147265","subcontract",10
+"36","Couplers, Gen Structural Assys, NRE - Other, Nuts.","Couplers, Gen Structural Assys, NRE - Other, Nuts.","Nuts","932473","subcontract",10
+"37","Couplers, Gen Structural Assys, NRE - Other, Nuts.","Couplers, Gen Structural Assys, NRE - Other, Nuts.","Nuts","932473","subcontract",10
+"43","Encoders, NRE - Other.","Encoders, NRE - Other.","Encoders","893366","subcontract",10
+"44","Encoders, NRE - Other.","Encoders, NRE - Other.","Encoders","893366","subcontract",10
+"47","Fuselage, Gen Structural Assys, NRE - Other.","Fuselage, Gen Structural Assys, NRE - Other.","Fuselage","784267","subcontract",10
+"48","Fuselage, Gen Structural Assys, NRE - Other.","Fuselage, Gen Structural Assys, NRE - Other.","Fuselage","784267","subcontract",10
+"56","NRE - Data Items, NRE - Engineering, NRE - Qualification, Pumps, Tech/Eng Services.","NRE - Data Items, NRE - Engineering, NRE - Qualification, Pumps, Tech/Eng Services.","Pumps","620396","subcontract",10
+"59","Gen Structural Assys, NRE - Other, Valves.","Gen Structural Assys, NRE - Other, Valves.","Valves","509049","subcontract",10
+"60","Gen Structural Assys, NRE - Other, Valves.","Gen Structural Assys, NRE - Other, Valves.","Valves","509049","subcontract",10
+"61","Cable Assemblies RF, CableAssy&HarnMulti, NRE - Other.","Cable Assemblies RF, CableAssy&HarnMulti, NRE - Other.","Cable","504312","subcontract",10
+"64","Cable Assemblies RF, CableAssy&HarnMulti, NRE - Other.","Cable Assemblies RF, CableAssy&HarnMulti, NRE - Other.","Cable","494312","subcontract",10
+"78","NRE - Data Items, NRE - Engineering, NRE - Qualification, Pumps, Tech/Eng Services.","NRE - Data Items, NRE - Engineering, NRE - Qualification, Pumps, Tech/Eng Services.","Pumps","401171","subcontract",10
+"79","NRE - Engineering, Titanium Invest Cast.","NRE - Engineering, Titanium Invest Cast.","Titanium","398019","subcontract",10
+"80","NRE - Engineering, Titanium Invest Cast.","NRE - Engineering, Titanium Invest Cast.","Titanium","398019","subcontract",10
+"100","Explosive Cut Device.","Explosive Cut Device.","Explosive","230580","subcontract",10
+"101","Explosive Cut Device.","Explosive Cut Device.","Explosive","230580","subcontract",10
+"105","NRE - Engineering, Receivers.","NRE - Engineering, Receivers.","Receivers","209036","subcontract",10
+"106","NRE - Engineering, Receivers.","NRE - Engineering, Receivers.","Receivers","209036","subcontract",10
+"110","Metal Shp'g Containr.","Metal Shp'g Containr.","Metal","198546","subcontract",10
+"111","Metal Shp'g Containr.","Metal Shp'g Containr.","Metal","198546","subcontract",10
+"122","Iron Batteries.","Iron Batteries.","Batteries","188342","subcontract",10
+"123","Iron Batteries.","Iron Batteries.","Batteries","188342","subcontract",10
+"147","Iron Batteries, NRE - Other.","Iron Batteries, NRE - Other.","Batteries","152392","subcontract",10
+"149","Iron Batteries, NRE - Other.","Iron Batteries, NRE - Other.","Batteries","152392","subcontract",10
+"151","Accelerometers, Amplifiers, Cable/CableAssyHV, Non-complex Machined.","Accelerometers, Amplifiers, Cable/CableAssyHV, Non-complex Machined.","Cable","149223","subcontract",10
+"152","Accelerometers, Amplifiers, Cable/CableAssyHV, Non-complex Machined.","Accelerometers, Amplifiers, Cable/CableAssyHV, Non-complex Machined.","Cable","149223","subcontract",10
+"160","Iron Batteries.","Iron Batteries.","Batteries","136770","subcontract",10
+"161","Iron Batteries.","Iron Batteries.","Batteries","136770","subcontract",10
+"178","Launchers&Cannisters.","Launchers&Cannisters.","Launchers","118490","subcontract",10
+"180","Launchers&Cannisters.","Launchers&Cannisters.","Launchers","118490","subcontract",10
+"193","NRE - Other, Titanium Plate.","NRE - Other, Titanium Plate.","Titanium","101361","subcontract",10
+"194","NRE - Other, Titanium Plate.","NRE - Other, Titanium Plate.","Titanium","101361","subcontract",10
+"195","Gears, Precision Machined.","Gears, Precision Machined.","Gears","100232","subcontract",10
+"196","Gears, Precision Machined.","Gears, Precision Machined.","Gears","100232","subcontract",10
+"216","Iron Batteries.","Iron Batteries.","Batteries","86583","subcontract",10
+"218","CableAssy&HarnMulti, NRE - Other.","CableAssy&HarnMulti, NRE - Other.","Cable","84626","subcontract",10
+"219","CableAssy&HarnMulti, NRE - Other.","CableAssy&HarnMulti, NRE - Other.","Cable","84626","subcontract",10
+"242","CableAssy&HarnMulti, NRE - Other.","CableAssy&HarnMulti, NRE - Other.","Cable","70147","subcontract",10
+"243","CableAssy&HarnMulti, NRE - Other.","CableAssy&HarnMulti, NRE - Other.","Cable","70147","subcontract",10
+"250","Transmitters.","Transmitters.","Transmitters","66325","subcontract",10
+"251","Transmitters.","Transmitters.","Transmitters","66325","subcontract",10
+"277","Non-complex ShtMetal.","Non-complex ShtMetal.","Metal","54029","subcontract",10
+"278","Non-complex ShtMetal.","Non-complex ShtMetal.","Metal","54029","subcontract",10
+"284","NRE - Other, Protect&Dust Covers, Rectanglar Connector, S&A Devices.","NRE - Other, Protect&Dust Covers, Rectanglar Connector, S&A Devices.","Connector","50371","subcontract",10
+"285","NRE - Other, Protect&Dust Covers, Rectanglar Connector, S&A Devices.","NRE - Other, Protect&Dust Covers, Rectanglar Connector, S&A Devices.","Connector","50371","subcontract",10
+"293","CableAssy&HarnMulti, NRE - Other.","CableAssy&HarnMulti, NRE - Other.","Cable","49145","subcontract",10
+"294","Fasteners & Hardware.","Fasteners & Hardware.","Fasteners","47883","subcontract",10
+"295","Fasteners & Hardware.","Fasteners & Hardware.","Fasteners","47883","subcontract",10
+"300","Shafts.","Shafts.","Shafts","46830","subcontract",10
+"304","CableAssy&HarnMulti.","CableAssy&HarnMulti.","Cable","46428","subcontract",10
+"305","GPS Receivers.","GPS Receivers.","Receivers","45100","subcontract",10
+"306","GPS Receivers.","GPS Receivers.","Receivers","45100","subcontract",10
+"312","Encoders.","Encoders.","Encoders","41145","subcontract",10
+"313","Encoders.","Encoders.","Encoders","41145","subcontract",10
+"314","Clamps, Washers.","Clamps, Washers.","Washers","40618","subcontract",10
+"315","Clamps, Washers.","Clamps, Washers.","Washers","40618","subcontract",10
+"316","Accelerometers, CableMulticonductor.","Accelerometers, CableMulticonductor.","Cable","40261","subcontract",10
+"317","CableAssy&HarnMulti.","CableAssy&HarnMulti.","Cable","39096","subcontract",10
+"323","Accelerometers, CableMulticonductor.","Accelerometers, CableMulticonductor.","Cable","33520","subcontract",10
+"328","Encoders.","Encoders.","Encoders","31846","subcontract",10
+"329","Encoders.","Encoders.","Encoders","31846","subcontract",10
+"337","CableAssy&HarnMulti, NRE - Other.","CableAssy&HarnMulti, NRE - Other.","Cable","30940","subcontract",10
+"338","CableAssy&HarnMulti, NRE - Other.","CableAssy&HarnMulti, NRE - Other.","Cable","30940","subcontract",10
+"RAYTHEON COMPANY","RAYTHEON COMPANY","IGF::OT::IGF HYPERSONIC AIR-BREATHING WEAPON CONCEPT (HAWC) PHASE 2","","174746702","contractee",50
+"A. P. I. INCORPORATED","A. P. I. INCORPORATED","A. P. I. INCORPORATED","","81236","subawardee",10
+"ADVANCED THERMAL BATTERIES INC.","ADVANCED THERMAL BATTERIES INC.","ADVANCED THERMAL BATTERIES INC.","","273540","subawardee",10
+"ALLCOMP INC.","ALLCOMP INC.","ALLCOMP INC.","","95766","subawardee",10
+"AZMARK AERO SYSTEMS, LLC","AZMARK AERO SYSTEMS, LLC","AZMARK AERO SYSTEMS, LLC","","108058","subawardee",10
+"BAE SYSTEMS INFORMATION AND ELECTRONIC SYSTEMS INTEGRATION INC.","BAE SYSTEMS INFORMATION AND ELECTRONIC SYSTEMS INTEGRATION INC.","BAE SYSTEMS INFORMATION AND ELECTRONIC SYSTEMS INTEGRATION INC.","","90200","subawardee",10
+"CAID INDUSTRIES, INC","CAID INDUSTRIES, INC","CAID INDUSTRIES, INC","","397092","subawardee",10
+"CICOIL, LLC","CICOIL, LLC","CICOIL, LLC","","61880","subawardee",10
+"DUCOMMUN LABARGE TECHNOLOGIES, INC.","DUCOMMUN LABARGE TECHNOLOGIES, INC.","DUCOMMUN LABARGE TECHNOLOGIES, INC.","","1543581","subawardee",10
+"DYNETICS TECHNICAL SOLUTIONS, INC.","DYNETICS TECHNICAL SOLUTIONS, INC.","DYNETICS TECHNICAL SOLUTIONS, INC.","","1568534","subawardee",10
+"DYTRAN INSTRUMENTS INC.","DYTRAN INSTRUMENTS INC.","DYTRAN INSTRUMENTS INC.","","298446","subawardee",10
+"EAGLEPICHER TECHNOLOGIES, LLC","EAGLEPICHER TECHNOLOGIES, LLC","EAGLEPICHER TECHNOLOGIES, LLC","","768051","subawardee",10
+"EMOTEQ CORPORATION","EMOTEQ CORPORATION","EMOTEQ CORPORATION","","46830","subawardee",10
+"ENSIGN-BICKFORD AEROSPACE & DEFENSE COMPANY","ENSIGN-BICKFORD AEROSPACE & DEFENSE COMPANY","ENSIGN-BICKFORD AEROSPACE & DEFENSE COMPANY","","4712046","subawardee",11
+"HERLEY INDUSTRIES, INC.","HERLEY INDUSTRIES, INC.","HERLEY INDUSTRIES, INC.","","418072","subawardee",10
+"JANSEN'S AIRCRAFT SYSTEMS CONTROLS, INC.","JANSEN'S AIRCRAFT SYSTEMS CONTROLS, INC.","JANSEN'S AIRCRAFT SYSTEMS CONTROLS, INC.","","1018098","subawardee",10
+"KLUNE INDUSTRIES, INC.","KLUNE INDUSTRIES, INC.","KLUNE INDUSTRIES, INC.","","202722","subawardee",10
+"L3 TECHNOLOGIES, INC.","L3 TECHNOLOGIES, INC.","L3 TECHNOLOGIES, INC.","","1932714","subawardee",10
+"MARVIN ENGINEERING CO., INC.","MARVIN ENGINEERING CO., INC.","MARVIN ENGINEERING CO., INC.","","236980","subawardee",10
+"PACIFIC SCIENTIFIC ENERGETIC MATERIALS COMPANY (CALIFORNIA) LLC","PACIFIC SCIENTIFIC ENERGETIC MATERIALS COMPANY (CALIFORNIA) LLC","PACIFIC SCIENTIFIC ENERGETIC MATERIALS COMPANY (CALIFORNIA) LLC","","4620636","subawardee",11
+"PARKER-HANNIFIN CORPORATION","PARKER-HANNIFIN CORPORATION","PARKER-HANNIFIN CORPORATION","","1021567","subawardee",10
+"PCB PIEZOTRONICS, INC.","PCB PIEZOTRONICS, INC.","PCB PIEZOTRONICS, INC.","","73781","subawardee",10
+"PCC STRUCTURALS, INC.","PCC STRUCTURALS, INC.","PCC STRUCTURALS, INC.","","796038","subawardee",10
+"QUASONIX, LLC","QUASONIX, LLC","QUASONIX, LLC","","132650","subawardee",10
+"SOUTHERN GEAR & MACHINE, INC.","SOUTHERN GEAR & MACHINE, INC.","SOUTHERN GEAR & MACHINE, INC.","","200464","subawardee",10

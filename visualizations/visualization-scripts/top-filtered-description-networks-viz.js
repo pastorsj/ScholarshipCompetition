@@ -5,14 +5,14 @@
     : "https://s3.amazonaws.com/datastore.portfolio.sampastoriza.com";
   // Fetch the data from AWS S3 and parse it
   const parsedData = await fetch(
-    `${url}/visualization_data/filtered_subcontract_network.csv`
+    `${url}/visualization_data/subcontract_description_g1_based_network.csv`
   )
     .then((result) => result.text())
     .then((text) => Papa.parse(text, { header: true, skipEmptyLines: true }))
     .then((data) => data.data);
 
   const costData = await fetch(
-    `${url}/visualization_data/all_filtered_costs.csv`
+    `${url}/visualization_data/all_filtered_description_g1_based_costs.csv`
   )
     .then((result) => result.text())
     .then((text) => Papa.parse(text, { header: true, skipEmptyLines: true }))
@@ -41,7 +41,7 @@
   const nodeData = costData.map((datum) => {
     return {
       id: datum.id,
-      name: datum.type === "subcontract" ? " " : datum.name,
+      name: datum.type === "subcontract" ? datum.extracted_words : datum.name,
       color: colorMap[datum.type],
       custom: {
         type: typeMap[datum.type],
@@ -63,13 +63,13 @@
     dirDist10 = "#FFD265",
     dirDistLess10 = "#2AA775";
 
-  Highcharts.chart("top-filtered-networks-container", {
+  Highcharts.chart("top-filtered-description-g1-networks-container", {
     chart: {
       type: "networkgraph",
       height: "100%",
     },
     title: {
-      text: "Targeted Top 10 Funded Subcontractors",
+      text: "Important Subcontractors Based on Description",
     },
     subtitle: {
       text: 'Source: <a href="https://www.usaspending.gov/award/CONT_AWD_HR001117C0025_9700_-NONE-_-NONE-/" target="_blank">USA Spending</a>',
@@ -96,12 +96,6 @@
         nodes: nodeData,
       },
     ],
-    credits: {
-      enabled: false,
-    },
-    exporting: {
-      enabled: false,
-    },
     tooltip: {
       enabled: true,
       useHTML: true,

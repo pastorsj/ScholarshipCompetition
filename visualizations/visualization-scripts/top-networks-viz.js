@@ -97,6 +97,13 @@
     tooltip: {
       enabled: true,
       useHTML: true,
+      shared: true,
+      positioner: function () {
+        return {
+          x: this.chart.plotLeft,
+          y: this.chart.plotTop,
+        };
+      },
       formatter: function () {
         return (
           `<div style="text-align: center"><b>${this.point.custom.type}</b></div><hr />` +

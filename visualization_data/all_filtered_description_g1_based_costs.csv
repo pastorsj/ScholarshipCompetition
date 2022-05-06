@@ -1,0 +1,34 @@
+"id","name","description","extracted_words","cost","type","scaled_radius"
+"1","Detonator&Initiator, Fuselage, Gen Structural Assys, Molded Rubber&O Ring, Non-complex Machined, NRE - Other, Seals, Tech/Eng Services, Wire Cable.","Detonator&Initiator, Fuselage, Gen Structural Assys, Molded Rubber&O Ring, Non-complex Machined, NRE - Other, Seals, Tech/Eng Services, Wire Cable.","Detonator,Fuselage,Rubber,Seals,Wire,Cable","62696821","subcontract",24
+"2","Detonator&Initiator, Fuselage, Gen Structural Assys, Molded Rubber&O Ring, Non-complex Machined, NRE - Other, Seals, Tech/Eng Services, Wire Cable.","Detonator&Initiator, Fuselage, Gen Structural Assys, Molded Rubber&O Ring, Non-complex Machined, NRE - Other, Seals, Tech/Eng Services, Wire Cable.","Detonator,Fuselage,Rubber,Seals,Wire,Cable","60448995","subcontract",24
+"29","FinsWings&Boattails, NRE - Other, Pyrotechnic Fuses, Rocket Motors.","FinsWings&Boattails, NRE - Other, Pyrotechnic Fuses, Rocket Motors.","Pyrotechnic,Fuses,Rocket,Motors","1935479","subcontract",10
+"30","FinsWings&Boattails, NRE - Other, Pyrotechnic Fuses, Rocket Motors.","FinsWings&Boattails, NRE - Other, Pyrotechnic Fuses, Rocket Motors.","Pyrotechnic,Fuses,Rocket,Motors","1935479","subcontract",10
+"115","Missile Antenna &Ped.","Missile Antenna &Ped.","Missile,Antenna","193949","subcontract",10
+"116","Missile Antenna &Ped.","Missile Antenna &Ped.","Missile,Antenna","193949","subcontract",10
+"119","Missile Antenna &Ped, NRE - Engineering, NRE - Other.","Missile Antenna &Ped, NRE - Engineering, NRE - Other.","Missile,Antenna","191588","subcontract",10
+"120","Missile Antenna &Ped, NRE - Engineering, NRE - Other.","Missile Antenna &Ped, NRE - Engineering, NRE - Other.","Missile,Antenna","191588","subcontract",10
+"141","Chargers, Lithium Batteries, NRE - Other.","Chargers, Lithium Batteries, NRE - Other.","Chargers,Lithium,Batteries","161022","subcontract",10
+"142","Chargers, Lithium Batteries, NRE - Other.","Chargers, Lithium Batteries, NRE - Other.","Chargers,Lithium,Batteries","161022","subcontract",10
+"203","Bolts, Launchers&Cannisters.","Bolts, Launchers&Cannisters.","Bolts,Launchers","91214","subcontract",10
+"204","Bolts, Launchers&Cannisters.","Bolts, Launchers&Cannisters.","Bolts,Launchers","91214","subcontract",10
+"210","Missile Antenna &Ped, NRE - Other.","Missile Antenna &Ped, NRE - Other.","Missile,Antenna","88682","subcontract",10
+"211","Missile Antenna &Ped, NRE - Other.","Missile Antenna &Ped, NRE - Other.","Missile,Antenna","88682","subcontract",10
+"253","Missile Antenna &Ped.","Missile Antenna &Ped.","Missile,Antenna","66160","subcontract",10
+"254","Missile Antenna &Ped.","Missile Antenna &Ped.","Missile,Antenna","66160","subcontract",10
+"324","Wire Cable.","Wire Cable.","Wire,Cable","33313","subcontract",10
+"325","Wire Cable.","Wire Cable.","Wire,Cable","33313","subcontract",10
+"334","AC-DC Power Supplies, Adaptors, Backshells, CableAssy&HarnMulti, Chargers, Custom - Computer SW, Filter Pin Connector, Flex Assy(w/Connect), Lithium Batteries, Microprocessors.","AC-DC Power Supplies, Adaptors, Backshells, CableAssy&HarnMulti, Chargers, Custom - Computer SW, Filter Pin Connector, Flex Assy(w/Connect), Lithium Batteries, Microprocessors.","Adaptors,Cable,Chargers,Computer,Connector,Lithium,Batteries","31429","subcontract",10
+"335","AC-DC Power Supplies, Adaptors, Backshells, CableAssy&HarnMulti, Chargers, Custom - Computer SW, Filter Pin Connector, Flex Assy(w/Connect), Lithium Batteries, Microprocessors.","AC-DC Power Supplies, Adaptors, Backshells, CableAssy&HarnMulti, Chargers, Custom - Computer SW, Filter Pin Connector, Flex Assy(w/Connect), Lithium Batteries, Microprocessors.","Adaptors,Cable,Chargers,Computer,Connector,Lithium,Batteries","31429","subcontract",10
+"345","Lithium Batteries.","Lithium Batteries.","Lithium,Batteries","30198","subcontract",10
+"RAYTHEON COMPANY","RAYTHEON COMPANY","IGF::OT::IGF HYPERSONIC AIR-BREATHING WEAPON CONCEPT (HAWC) PHASE 2","","174746702","contractee",50
+"AEROJET ROCKETDYNE, INC.","AEROJET ROCKETDYNE, INC.","AEROJET ROCKETDYNE, INC.","","3870958","subawardee",11
+"ALLCOMP INC.","ALLCOMP INC.","ALLCOMP INC.","","132320","subawardee",10
+"ALLIANT TECHSYSTEMS OPERATIONS LLC","ALLIANT TECHSYSTEMS OPERATIONS LLC","ALLIANT TECHSYSTEMS OPERATIONS LLC","","123145816","subawardee",38
+"ATK SPACE SYSTEMS INC.","ATK SPACE SYSTEMS INC.","ATK SPACE SYSTEMS INC.","","177364","subawardee",10
+"DIVERSIFIED TECHNICAL SYSTEMS, INC.","DIVERSIFIED TECHNICAL SYSTEMS, INC.","DIVERSIFIED TECHNICAL SYSTEMS, INC.","","62858","subawardee",10
+"EAGLEPICHER TECHNOLOGIES, LLC","EAGLEPICHER TECHNOLOGIES, LLC","EAGLEPICHER TECHNOLOGIES, LLC","","30198","subawardee",10
+"HI-TECH MACHINING & ENGINEERING, L.L.C.","HI-TECH MACHINING & ENGINEERING, L.L.C.","HI-TECH MACHINING & ENGINEERING, L.L.C.","","182428","subawardee",10
+"MORGAN ADVANCED CERAMICS, INC","MORGAN ADVANCED CERAMICS, INC","MORGAN ADVANCED CERAMICS, INC","","383176","subawardee",10
+"PORT ELECTRONICS CORPORATION","PORT ELECTRONICS CORPORATION","PORT ELECTRONICS CORPORATION","","387898","subawardee",10
+"PRAXIS RESOURCES INC.","PRAXIS RESOURCES INC.","PRAXIS RESOURCES INC.","","66626","subawardee",10
+"SPACE VECTOR CORPORATION","SPACE VECTOR CORPORATION","SPACE VECTOR CORPORATION","","322044","subawardee",10
