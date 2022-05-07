@@ -29,7 +29,6 @@
       name: datum.name,
     };
   });
-  console.log("Data", data);
 
   // Chart the data
   Highcharts.setOptions(personalTheme);
