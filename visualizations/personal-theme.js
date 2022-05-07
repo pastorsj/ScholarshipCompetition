@@ -19,13 +19,13 @@ const personalTheme = {
   title: {
     style: {
       color: "#000",
-      font: "20px Roboto Slab",
+      font: "20px Open Sans",
     },
   },
   subtitle: {
     style: {
       color: "#666666",
-      font: "bold 12px Roboto",
+      font: "bold 12px Open Sans",
     },
   },
   xAxis: {
@@ -33,13 +33,13 @@ const personalTheme = {
     title: {
       style: {
         color: "black",
-        font: "bold 15px Roboto Slab",
+        font: "bold 15px Open Sans",
       },
     },
     labels: {
       style: {
         color: "black",
-        font: "12px Roboto",
+        font: "12px Open Sans",
       },
     },
   },
@@ -47,19 +47,19 @@ const personalTheme = {
     title: {
       style: {
         color: "black",
-        font: "bold 15px Roboto Slab",
+        font: "bold 15px Open Sans",
       },
     },
     labels: {
       style: {
         color: "black",
-        font: "12px Roboto",
+        font: "12px Open Sans",
       },
     },
   },
   legend: {
     itemStyle: {
-      font: "9pt Roboto Slab",
+      font: "9pt Open Sans",
       color: "black",
     },
     itemHoverStyle: {

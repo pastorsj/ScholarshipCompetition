@@ -40,13 +40,11 @@
   ];
   const dateMap = {};
   seriesData[0].data.forEach((res, i) => {
-    console.log("Result", res);
     dateMap[res[0]] = {
       date: parsedData[i].subaward_action_date,
     };
   });
 
-  console.log("All Contracts", parsedContractsData);
   const allContractsMap = parsedContractsData.reduce((resultingMap, next) => {
     if (resultingMap[next.subaward_action_date]) {
       if (
@@ -88,10 +86,6 @@
     return resultingMap;
   }, {});
 
-  console.log("Series Data", seriesData);
-  console.log("Date Map", dateMap);
-  console.log("Bubble Date Map", allContractsMap);
-
   // Create a line chart
   let subcontractBubbleChart;
   Highcharts.setOptions(personalTheme);
@@ -119,12 +113,6 @@
       },
     },
     legend: {
-      enabled: false,
-    },
-    credits: {
-      enabled: false,
-    },
-    exporting: {
       enabled: false,
     },
     plotOptions: {

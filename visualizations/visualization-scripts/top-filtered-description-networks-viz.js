@@ -60,7 +60,7 @@
   Highcharts.chart("top-filtered-description-g1-networks-container", {
     chart: {
       type: "networkgraph",
-      height: "900px",
+      height: "800px",
     },
     title: {
       text: "Subcontractors that build <b>more than one product</b> <br /> for their subcontract based on the description",

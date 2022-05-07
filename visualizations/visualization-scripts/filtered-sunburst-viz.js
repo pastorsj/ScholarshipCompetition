@@ -6,7 +6,7 @@
 
   // Fetch data from AWS S3
   const parsedData = await fetch(
-    `${url}/visualization_data/award_relationships.csv`
+    `${url}/visualization_data/award_filtered_relationships.csv`
   )
     .then((result) => result.text())
     .then((text) => Papa.parse(text, { header: true, skipEmptyLines: true }))
@@ -31,7 +31,7 @@
 
   // Chart the data
   Highcharts.setOptions(personalTheme);
-  Highcharts.chart("sunburst-container", {
+  Highcharts.chart("filtered-sunburst-container", {
     chart: {
       height: "600px",
       width: 600,
@@ -39,7 +39,7 @@
     // Let the center circle be transparent
     colors: ["transparent"].concat(Highcharts.getOptions().colors),
     title: {
-      text: "Understanding the flow of contract funding",
+      text: "Understanding the flow of contract funding <br /> <b>(Removed Alliant Techsystems)</b>",
     },
     subtitle: {
       text: 'Source: <a href="https://www.usaspending.gov/award/CONT_AWD_HR001117C0025_9700_-NONE-_-NONE-/" target="_blank">USA Spending</a>',

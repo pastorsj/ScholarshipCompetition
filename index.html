@@ -18,15 +18,13 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
     <link
-      rel="apple-touch-icon"
-      sizes="76x76"
-      href="./assets/img/apple-icon.png"
+      rel="icon"
+      type="image/png"
+      href="https://images.emojiterra.com/openmoji/v13.1/512px/1f680.png"
     />
-    <link rel="icon" type="image/png" href="./assets/img/favicon.png" />
 
-    <title>Understanding Contract Data</title>
+    <title>Visualizing US Contracts</title>
 
     <!--     Fonts and icons     -->
     <link
@@ -52,6 +50,39 @@
       href="./assets/css/soft-design-system.css?v=1.0.7"
       rel="stylesheet"
     />
+
+    <!-- Highcharts JS Files -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/wordcloud.js"></script>
+    <script src="https://code.highcharts.com/modules/sunburst.js"></script>
+    <script src="https://code.highcharts.com/modules/networkgraph.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/timeline.js"></script>
+    <script src="https://rawgit.com/mholt/PapaParse/master/papaparse.js"></script>
+    <script src="./visualizations/personal-theme.js"></script>
+    <style>
+      figcaption {
+        text-align: center;
+        font-style: italic;
+        text-indent: 0;
+        font-size: 14px;
+        margin: 0 50px 0 50px;
+      }
+      body {
+        overflow-x: hidden;
+      }
+      .highcharts-credits {
+        display: none;
+      }
+      .highcharts-container {
+        margin: 0 auto;
+      }
+      .highcharts-series-label-0 {
+        display: none;
+      }
+    </style>
   </head>
 
   <body class="index-page">
@@ -69,9 +100,10 @@
                 Cyber Risk Management and Prioritization
               </h1>
               <p class="lead text-white mt-3">
-                Standardization thee evaluation of cybersecurity risk posed by
+                Standardizing the evaluation of cybersecurity risk posed by
                 defense companies working with the government in order to
-                prioritize mitigation methods to prevent cybersecurity incidents
+                prioritize mitigation methods to prevent cybersecurity
+                incidents.
               </p>
             </div>
           </div>
@@ -139,18 +171,23 @@
       <div class="container">
         <div class="row">
           <div
-            class="col-lg-9 z-index-2 border-radius-xl mt-n10 mx-auto py-3 blur shadow-blur"
+            class="col-lg-11 z-index-2 border-radius-xl mt-n10 mx-auto py-3 blur shadow-blur"
           >
             <div class="row">
               <div class="col-md-4 position-relative">
                 <div class="p-3 text-center">
                   <h1 class="text-gradient text-primary">
-                    <span id="state1" countTo="70">0</span>+
+                    <span id="state1" countTo="100">0</span>+ million
                   </h1>
-                  <h5 class="mt-3">Coded Elements</h5>
+                  <h5 class="mt-3">Contracts</h5>
                   <p class="text-sm">
-                    From buttons, to inputs, navbars, alerts or cards, you are
-                    covered
+                    Contracts issued and tracked by the
+                    <a
+                      href="https://www.usaspending.gov/award/CONT_AWD_HR001117C0025_9700_-NONE-_-NONE-/"
+                      target="_blank"
+                      >USA Spending</a
+                    >
+                    website
                   </p>
                 </div>
                 <hr class="vertical dark" />
@@ -158,29 +195,35 @@
               <div class="col-md-4 position-relative">
                 <div class="p-3 text-center">
                   <h1 class="text-gradient text-primary">
-                    <span id="state2" countTo="15">0</span>+
+                    <span id="state2" countTo="22">0</span>
                   </h1>
-                  <h5 class="mt-3">Design Blocks</h5>
+                  <h5 class="mt-3">Years</h5>
                   <p class="text-sm">
-                    Mix the sections, change the colors and unleash your
-                    creativity
+                    Years tracked starting in 2000 by the
+                    <a
+                      href="https://www.usaspending.gov/award/CONT_AWD_HR001117C0025_9700_-NONE-_-NONE-/"
+                      target="_blank"
+                      >USA Spending</a
+                    >
+                    website
                   </p>
                 </div>
                 <hr class="vertical dark" />
               </div>
               <div class="col-md-4">
                 <div class="p-3 text-center">
-                  <h1
-                    class="text-gradient text-primary"
-                    id="state3"
-                    countTo="4"
-                  >
-                    0
+                  <h1 class="text-gradient text-primary">
+                    $<span id="state3" countTo="500">0</span>+ billion
                   </h1>
-                  <h5 class="mt-3">Pages</h5>
+                  <h5 class="mt-3">Dollars</h5>
                   <p class="text-sm">
-                    Save 3-4 weeks of work when you use our pre-made pages for
-                    your website
+                    Amount spent on average each year on contracts according to
+                    the
+                    <a
+                      href="https://datalab.usaspending.gov/contract-explorer/"
+                      target="_blank"
+                      >USA Spending Data Lab</a
+                    >
                   </p>
                 </div>
               </div>
@@ -189,6 +232,494 @@
         </div>
       </div>
     </section>
+
+    <section class="my-3">
+      <div class="container">
+        <div class="row justify-content-center text-center my-sm-5">
+          <div class="col-lg-9">
+            <h2 class="text-dark mb-0">
+              Visualizing networks of contracts and subcontracts
+            </h2>
+            <p class="lead">
+              Using a wide variety of visualizations, we will uncover the
+              network of subcontracts to focus efforts on mitigating
+              cybersecurity risks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-3 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Introduction here... talk about USA contracts, how many, the types,
+            how they are issued, what are subcontracts, etc...
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Discuss use case, who might use this dashboard (Raytheon/owner of
+            the contract/Department of defense)
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Transition to the single contract, who is the contractor, what was
+            the contract about, what are hypersonic missles
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-4 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11 mx-auto">
+            <figure class="highcharts-figure">
+              <div id="timeline-container"></div>
+            </figure>
+            <figcaption>
+              <span style="color: black">
+                Figure 1: A timeline of the Raytheon contract, including
+                information on when the contract was issued, when the contract
+                ended, and important dates including large subcontracts.
+              </span>
+            </figcaption>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-3 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Discuss the second timeline, understand what the large set of
+            expensive subcontracts are for, why they were issued in advanced,
+            perhaps does this mean the subcontractor is important
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Now that we have grasped an understanding of the timeline, we can
+            see that many of the large contracts were issues up front, but how
+            were they funded? Let's take another look at funding, this time
+            using a simple sunburst chart
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-4 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11 mx-auto">
+            <figure class="highcharts-figure">
+              <div
+                style="display: inline-block; width: 60%; height: 500px"
+                id="subcontracts-container"
+              ></div>
+              <div
+                style="display: inline-block; width: 39%; height: 500px"
+                id="subcontracts-bubble-container"
+              ></div>
+            </figure>
+            <figcaption>
+              <span style="color: black">
+                Figure 2: This plot shows all of the subcontracts for the
+                Raytheon contract issues in 2016. Note the subcontracts issues
+                before the start date for the Raytheon contract. Also, note the
+                large increases in the data represented by massive subcontract
+                spending on a subset of companies.
+              </span>
+            </figcaption>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-3 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Discuss the timeline, talk about how it is important to understand
+            the timeline to get a better sense of the data for the contract.
+            (reference Figure 1)
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Now, transition into discussing the subcontracts, funding, over
+            time, give the user some direction, but let them explore the
+            contracts further.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-4 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="nav-wrapper position-relative end-0">
+            <ul class="nav nav-pills nav-fill p-1" role="tablist">
+              <li class="nav-item">
+                <a
+                  class="nav-link mb-0 px-0 py-1 active"
+                  data-bs-toggle="tab"
+                  href="#tab1"
+                  role="tab"
+                  aria-controls="contract_funding"
+                  aria-selected="true"
+                >
+                  Contract Funding
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link mb-0 px-0 py-1"
+                  data-bs-toggle="tab"
+                  href="#tab2"
+                  role="tab"
+                  aria-controls="filtered_contract_funding"
+                  aria-selected="false"
+                >
+                  Filtered Contract Funding
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content d-flex justify-content-center w-100">
+            <div class="tab-pane active" id="tab1">
+              <figure class="highcharts-figure">
+                <div id="sunburst-container"></div>
+              </figure>
+              <figcaption>
+                <span style="color: black"> Figure 3: Sunburst chart </span>
+              </figcaption>
+            </div>
+            <div class="tab-pane" id="tab2">
+              <figure class="highcharts-figure">
+                <div id="filtered-sunburst-container"></div>
+              </figure>
+              <figcaption>
+                <span style="color: black">
+                  Figure 4: Sunburst chart without the Alliant Techsystems
+                  company
+                </span>
+              </figcaption>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-3 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Discuss the first sunburst chart, talk about the importance of the
+            alliant techsystems, background to what they do, they must be
+            important
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Talk about limitations of this chart, missing focus on the other
+            contracts. It might be easier to understand the relative funding
+            sizes of the other contracts by removing alliant techsystems from
+            the view. See Figure 4 in the Filtered contract funding tab
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Talk about the filtered contract funding, which contracts have
+            slightly larger funding, could be important, worth exploring
+            further, especially to understand what the contracts do
+            specifically. Transition to next viz concerning the networks between
+            the contract and subcontracts, explain this viz
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-4 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="nav-wrapper position-relative end-0">
+            <ul class="nav nav-pills nav-fill p-1" role="tablist">
+              <li class="nav-item">
+                <a
+                  class="nav-link mb-0 px-0 py-1 active"
+                  data-bs-toggle="tab"
+                  href="#tab3"
+                  role="tab"
+                  aria-controls="contract_network"
+                  aria-selected="true"
+                >
+                  Top Funded Subcontracts
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link mb-0 px-0 py-1"
+                  data-bs-toggle="tab"
+                  href="#tab4"
+                  role="tab"
+                  aria-controls="filtered_contract_network"
+                  aria-selected="false"
+                >
+                  Top Funded Filtered Subcontracts
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="tab-content d-flex justify-content-center w-100">
+            <div class="tab-pane active" id="tab3">
+              <figure class="highcharts-figure">
+                <div id="top-networks-container"></div>
+              </figure>
+              <figcaption>
+                <span style="color: black">
+                  Figure 5: This plot shows the network between the contractor
+                  (Raytheon), the subcontracts (show in blue triangles), and the
+                  subcontractors.
+                </span>
+              </figcaption>
+            </div>
+            <div class="tab-pane" id="tab4">
+              <figure class="highcharts-figure">
+                <div id="top-filtered-networks-container"></div>
+              </figure>
+              <figcaption>
+                <span style="color: black">
+                  Figure 6: This plot shows the network between the contractor
+                  (Raytheon), the subcontracts (show in blue triangles), and the
+                  subcontractors. sans Fixed firm price
+                </span>
+              </figcaption>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-3 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Discuss the network at a high level, this is the first pass, come to
+            similar conclusions about alliant, but also note the filtered
+            version of the network shows a couple of things. First, it gives you
+            a sense of the most best funded contracts, but it also gives you a
+            sense of the subcontracts and the description of the subcotnracts,
+            and how much they cost.
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Talk about limitations of this network again, focus on the non cost
+            plus fixed fee contracts at least! Move to next viz in tab
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Talk about next in tab, discuss potential findings in terms of
+            funding, but also descriptions. Transition to how descriptions of
+            subcontracts actually are very important when determining
+            cybersecurity risk
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-4 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11 mx-auto">
+            <figure class="highcharts-figure">
+              <div id="descriptions-wordcloud-container"></div>
+            </figure>
+            <figcaption>
+              <span style="color: black">
+                Figure 7: This visualization shows a wordcloud of the
+                descriptions of subcontracts.
+              </span>
+            </figcaption>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-3 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Discuss the wordcloud at a high level, talk about how it was
+            created, what words are important, especially in context of
+            hypersonic missles.
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Next, discuss next steps. These include taking the word cloud,
+            picking the important words out and filtering subcontracts based on
+            that. Next, it is important to understand whether multiple key words
+            are in the subcontracts. Using the words, pick out subcontracts and
+            plot the numer of subcontracts that have each of these words.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-4 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11 mx-auto">
+            <figure class="highcharts-figure">
+              <div id="word-count-container"></div>
+            </figure>
+            <figcaption>
+              <span style="color: black">
+                Figure 8: This visualization shows the number subcontracts
+                containing a certain number of key words in the description of
+                the subcontract.
+              </span>
+            </figcaption>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-3 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Discuss the word count chart at a high level. Reason that contracts
+            with multiple word counts are important as they supply more than one
+            thing to Raytheon and therefore could be considered more important.
+            Also reason that subcontracts with single word counts are important
+            as they supply only one thing to Raytheon.
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Finally, reintroduce the two network viz, the first filtered by
+            single keywords
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-4 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11 mx-auto">
+            <figure class="highcharts-figure">
+              <div id="top-filtered-description-1-networks-container"></div>
+            </figure>
+            <figcaption>
+              <span style="color: black">
+                Figure 9: This visualization shows the network of contracts and
+                subcontracts filtered by subcontracts that
+                <b>only contain one keyword</b> in the description of the
+                subcontract.
+              </span>
+            </figcaption>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-3 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Discuss findings in the network. Theorize that some of the
+            subcontracts are far more important, and using this network, we can
+            see which subcontracts provide which. this allows Raytheon to single
+            out their subcontrators they believe are more important when it
+            comes to single supply.
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Finally, show the network of subcontractors that supply more than
+            one thing. These subcontractors are important...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-4 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11 mx-auto">
+            <figure class="highcharts-figure">
+              <div id="top-filtered-description-g1-networks-container"></div>
+            </figure>
+            <figcaption>
+              <span style="color: black">
+                Figure 10: This visualization shows the network of contracts and
+                subcontracts filtered by subcontracts that contain
+                <b>more than one keyword</b> in the description of the
+                subcontract.
+              </span>
+            </figcaption>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-3 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Discuss findings in the network. Theorize that some of the
+            subcontracts are far more important, and using this network, we can
+            see which subcontracts provide which. this allows Raytheon to single
+            out their subcontrators they believe are more important when it
+            comes to single supply.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-3 mx-4">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Discuss overall findings in terms of funding and descriptions of the
+            contracts.
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Propose steps going forward, any limitations, any future
+            exploration.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer pt-5 mt-5">
+      <hr class="horizontal dark mb-5" />
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="text-center">
+              <p class="my-4 text-sm">
+                Website by <b>sjp114</b>. Inspired by Soft UI Design System by
+                <a href="https://www.creative-tim.com" target="_blank"
+                  >Creative Tim</a
+                >.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <!--   Core JS Files   -->
     <script
@@ -205,28 +736,22 @@
     <script src="./assets/js/plugins/countup.min.js"></script>
 
     <script src="./assets/js/plugins/choices.min.js"></script>
-
-    <script src="./assets/js/plugins/prism.min.js"></script>
-    <script src="./assets/js/plugins/highlight.min.js"></script>
-
-    <!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
-    <script src="./assets/js/plugins/rellax.min.js"></script>
-    <!--  Plugin for TiltJS, full documentation here: https://gijsroge.github.io/tilt.js/ -->
-    <script src="./assets/js/plugins/tilt.min.js"></script>
-    <!--  Plugin for Selectpicker - ChoicesJS, full documentation here: https://github.com/jshjohnson/Choices -->
-    <script src="./assets/js/plugins/choices.min.js"></script>
-
-    <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
-    <script src="./assets/js/plugins/parallax.min.js"></script>
-
-    <!-- Control Center for Soft UI Kit: parallax effects, scripts for the example pages etc -->
-    <!--  Google Maps Plugin    -->
-
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
     <script
       src="./assets/js/soft-design-system.min.js?v=1.0.7"
       type="text/javascript"
     ></script>
+
+    <!-- Highcharts -->
+    <script src="./visualizations/visualization-scripts/timeline-viz.js"></script>
+    <script src="./visualizations/visualization-scripts/subcontracts-viz.js"></script>
+    <script src="./visualizations/visualization-scripts/sunburst-viz.js"></script>
+    <script src="./visualizations/visualization-scripts/filtered-sunburst-viz.js"></script>
+    <script src="./visualizations/visualization-scripts/top-networks-viz.js"></script>
+    <script src="./visualizations/visualization-scripts/top-filtered-networks-viz.js"></script>
+    <script src="./visualizations/visualization-scripts/descriptions-viz.js"></script>
+    <script src="./visualizations/visualization-scripts/word-count-viz.js"></script>
+    <script src="./visualizations/visualization-scripts/top-filtered-description-1-networks-viz.js"></script>
+    <script src="./visualizations/visualization-scripts/top-filtered-description-networks-viz.js"></script>
 
     <script type="text/javascript">
       if (document.getElementById("state1")) {

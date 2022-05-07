@@ -58,7 +58,8 @@
   Highcharts.chart("top-networks-container", {
     chart: {
       type: "networkgraph",
-      height: "900px",
+      height: 800,
+      width: 800,
     },
     title: {
       text: "Top 8 Funded Subcontractors",

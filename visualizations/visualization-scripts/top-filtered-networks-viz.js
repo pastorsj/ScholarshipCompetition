@@ -60,7 +60,9 @@
   Highcharts.chart("top-filtered-networks-container", {
     chart: {
       type: "networkgraph",
-      height: "900px",
+      height: 800,
+      width: 800,
+      className: "mx-auto",
     },
     title: {
       text: "Targeted Top 10 Funded Subcontractors <br /> (post filter)",
@@ -90,12 +92,6 @@
         nodes: nodeData,
       },
     ],
-    credits: {
-      enabled: false,
-    },
-    exporting: {
-      enabled: false,
-    },
     tooltip: {
       enabled: true,
       useHTML: true,

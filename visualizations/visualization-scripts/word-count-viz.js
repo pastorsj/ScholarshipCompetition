@@ -48,12 +48,6 @@
     legend: {
       enabled: false,
     },
-    credits: {
-      enabled: false,
-    },
-    exporting: {
-      enabled: false,
-    },
     plotOptions: {
       column: {
         pointPadding: 0.2,

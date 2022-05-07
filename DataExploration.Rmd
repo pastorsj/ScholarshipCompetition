@@ -40,10 +40,12 @@ contract.df
 nrow(contract.df)
 # Number of unique contractors
 contract.df %>%
-  count(prime_awardee_name)
+  group_by(prime_awardee_name) %>%
+  count(name = 'unique_contractors')
 # Number of unique sub contractors
 contract.df %>%
-  count(prime_awardee_name)
+  group_by(subawardee_name) %>%
+  count(name = 'unique_subcontractors')
 # Most expensive contract
 contract.df %>%
   arrange(desc(subaward_amount)) %>%
@@ -99,6 +101,52 @@ network.awards.df
 ```
 
 
+```{r}
+sunburst.df <- data.frame(parent = c(""), id = c("All"), name = 'DOD', value = c(0), final_layer = FALSE)
+
+first.layer <- network.awards.df %>%
+  group_by(prime_award_awarding_sub_agency_name) %>%
+  summarize(value = sum(subaward_amount)) %>%
+  mutate(
+    parent = "All",
+    id = paste("All", prime_award_awarding_sub_agency_name, sep = "."),
+    name = prime_award_awarding_sub_agency_name,
+    final_layer = FALSE
+  ) %>%
+  ungroup() %>%
+  select(-prime_award_awarding_sub_agency_name)
+
+second.layer <- network.awards.df %>%
+  group_by(prime_award_awarding_sub_agency_name, prime_awardee_name) %>%
+  summarize(value = sum(subaward_amount)) %>%
+  mutate(
+    parent = paste("All", prime_award_awarding_sub_agency_name, sep = "."),
+    id = paste("All", prime_award_awarding_sub_agency_name, prime_awardee_name, sep = "."),
+    name = prime_awardee_name,
+    final_layer = FALSE
+  ) %>%
+  ungroup() %>%
+  select(-prime_award_awarding_sub_agency_name, -prime_awardee_name)
+
+third.layer <- network.awards.df %>%
+  group_by(prime_award_awarding_sub_agency_name, prime_awardee_name, subawardee_name) %>%
+  summarize(value = sum(subaward_amount)) %>%
+  mutate(
+    parent = paste("All", prime_award_awarding_sub_agency_name, prime_awardee_name, sep = "."),
+    id = paste("All", prime_award_awarding_sub_agency_name, prime_awardee_name, subawardee_name, sep = "."),
+    name = subawardee_name,
+    final_layer = TRUE
+  ) %>%
+  ungroup() %>%
+  select(-prime_award_awarding_sub_agency_name, -prime_awardee_name, -subawardee_name)
+
+sunburst.viz.df <- do.call("rbind", list(sunburst.df, first.layer, second.layer, third.layer))
+sunburst.viz.df
+
+write.csv(sunburst.viz.df %>% mutate(value = as.character(value)), "./visualization_data/award_relationships.csv", row.names = FALSE)
+```
+
+# Filtered out Alliant
 ```{r}
 sunburst.df <- data.frame(parent = c(""), id = c("All"), name = 'DOD', value = c(0), final_layer = FALSE)
 

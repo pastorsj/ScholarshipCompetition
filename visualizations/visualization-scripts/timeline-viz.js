@@ -15,6 +15,9 @@ Highcharts.chart("timeline-container", {
   subtitle: {
     text: 'Source: <a href="https://www.usaspending.gov/award/CONT_AWD_HR001117C0025_9700_-NONE-_-NONE-/" target="_blank">USA Spending</a>',
   },
+  legend: {
+    enabled: false,
+  },
   series: [
     {
       data: [
