@@ -76,6 +76,9 @@ cost.contracts.2.df <- contract.df %>%
   mutate(total_cost = cumsum(total_cost_day))
 
 write.csv(cost.contracts.2.df %>% mutate(total_cost = as.character(total_cost)), "./visualization_data/contract_costs_2_time.csv", row.names = FALSE)
+
+# Contracts
+write.csv(contracts.df %>% select(subaward_action_date, subaward_amount, subawardee_name, subaward_description), "./visualization_data/contract_info.csv", row.names = FALSE)
 ```
 
 ## Sunburst Chart

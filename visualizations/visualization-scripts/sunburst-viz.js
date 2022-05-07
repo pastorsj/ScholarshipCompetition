@@ -32,20 +32,15 @@
   console.log("Data", data);
 
   // Chart the data
-  //   Highcharts.setOptions(theme);
-  Highcharts.setOptions({
-    lang: {
-      thousandsSep: ",",
-    },
-  });
+  Highcharts.setOptions(personalTheme);
   Highcharts.chart("sunburst-container", {
     chart: {
-      height: "700px",
+      height: "600px",
     },
     // Let the center circle be transparent
     colors: ["transparent"].concat(Highcharts.getOptions().colors),
     title: {
-      text: "Contract and Subcontract Information",
+      text: "Understanding the flow of contract funding",
     },
     subtitle: {
       text: 'Source: <a href="https://www.usaspending.gov/award/CONT_AWD_HR001117C0025_9700_-NONE-_-NONE-/" target="_blank">USA Spending</a>',

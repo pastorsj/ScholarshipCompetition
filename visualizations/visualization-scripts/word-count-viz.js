@@ -14,9 +14,11 @@
     y: parseInt(datum.value),
   }));
 
+  Highcharts.setOptions(personalTheme);
   Highcharts.chart("word-count-container", {
     chart: {
       type: "column",
+      height: "500px",
     },
     title: {
       text: "Distribution of the number of different types <br /> of items being supplied by subcontractors",

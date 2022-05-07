@@ -16,9 +16,10 @@
     weight: parseInt(datum.freq),
   }));
 
+  Highcharts.setOptions(personalTheme);
   Highcharts.chart("descriptions-wordcloud-container", {
     chart: {
-      height: "100%",
+      height: "500px",
     },
     plotOptions: {
       wordcloud: {
@@ -36,7 +37,7 @@
       {
         type: "wordcloud",
         data: data,
-        spiral: "archimedean",
+        spiral: "rectangular",
         name: "Occurrences",
       },
     ],

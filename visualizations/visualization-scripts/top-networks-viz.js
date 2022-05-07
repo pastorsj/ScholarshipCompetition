@@ -54,17 +54,11 @@
     };
   });
 
-  console.log("Series Data", seriesData);
-  console.log("Node Data", nodeData);
-
-  var dirDist50 = "#E8544E",
-    dirDist10 = "#FFD265",
-    dirDistLess10 = "#2AA775";
-
+  Highcharts.setOptions(personalTheme);
   Highcharts.chart("top-networks-container", {
     chart: {
       type: "networkgraph",
-      height: "100%",
+      height: "900px",
     },
     title: {
       text: "Top 8 Funded Subcontractors",

@@ -56,20 +56,14 @@
     };
   });
 
-  console.log("Series Data", seriesData);
-  console.log("Node Data", nodeData);
-
-  var dirDist50 = "#E8544E",
-    dirDist10 = "#FFD265",
-    dirDistLess10 = "#2AA775";
-
+  Highcharts.setOptions(personalTheme);
   Highcharts.chart("top-filtered-description-1-networks-container", {
     chart: {
       type: "networkgraph",
-      height: "100%",
+      height: "900px",
     },
     title: {
-      text: "Important Subcontractors Based on Description",
+      text: "Subcontractors that build <b>only one product</b> <br /> for their subcontract based on the description",
     },
     subtitle: {
       text: 'Source: <a href="https://www.usaspending.gov/award/CONT_AWD_HR001117C0025_9700_-NONE-_-NONE-/" target="_blank">USA Spending</a>',
