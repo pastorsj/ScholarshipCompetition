@@ -34,6 +34,18 @@ Highcharts.chart("timeline-container", {
             "October 31, 2016 <br /><b>Description of Contract: </b>HYPERSONIC AIR-BREATHING WEAPON CONCEPT (HAWC) PHASE 2",
         },
         {
+          name: "Contracts awarded to Advanced Thermal Batteries",
+          label: "August & September 2017",
+          description:
+            "August & September 2017 <br /><b>Description of Contract: </b>Iron Batteries",
+        },
+        {
+          name: "Contract awarded to Dytran Instruments Inc",
+          label: "March 26, 2019",
+          description:
+            "August & September 2017 <br /><b>Description of Contract: </b>Accelerometers, Amplifiers, Cable/CableAssyHV, Non-complex Machined.",
+        },
+        {
           name: "Contract Ended",
           label: "March 31, 2022",
           description:

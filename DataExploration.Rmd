@@ -151,6 +151,7 @@ write.csv(sunburst.viz.df %>% mutate(value = as.character(value)), "./visualizat
 sunburst.df <- data.frame(parent = c(""), id = c("All"), name = 'DOD', value = c(0), final_layer = FALSE)
 
 first.layer <- network.awards.df %>%
+  filter(subawardee_name != 'ALLIANT TECHSYSTEMS OPERATIONS LLC') %>%
   group_by(prime_award_awarding_sub_agency_name) %>%
   summarize(value = sum(subaward_amount)) %>%
   mutate(
@@ -163,6 +164,7 @@ first.layer <- network.awards.df %>%
   select(-prime_award_awarding_sub_agency_name)
 
 second.layer <- network.awards.df %>%
+  filter(subawardee_name != 'ALLIANT TECHSYSTEMS OPERATIONS LLC') %>%
   group_by(prime_award_awarding_sub_agency_name, prime_awardee_name) %>%
   summarize(value = sum(subaward_amount)) %>%
   mutate(
@@ -175,6 +177,7 @@ second.layer <- network.awards.df %>%
   select(-prime_award_awarding_sub_agency_name, -prime_awardee_name)
 
 third.layer <- network.awards.df %>%
+  filter(subawardee_name != 'ALLIANT TECHSYSTEMS OPERATIONS LLC') %>%
   group_by(prime_award_awarding_sub_agency_name, prime_awardee_name, subawardee_name) %>%
   summarize(value = sum(subaward_amount)) %>%
   mutate(
@@ -189,7 +192,7 @@ third.layer <- network.awards.df %>%
 sunburst.viz.df <- do.call("rbind", list(sunburst.df, first.layer, second.layer, third.layer))
 sunburst.viz.df
 
-write.csv(sunburst.viz.df %>% mutate(value = as.character(value)), "./visualization_data/award_relationships.csv", row.names = FALSE)
+write.csv(sunburst.viz.df %>% mutate(value = as.character(value)), "./visualization_data/award_filtered_relationships.csv", row.names = FALSE)
 ```
 
 ## Subcontract Network

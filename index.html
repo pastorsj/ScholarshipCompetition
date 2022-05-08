@@ -252,22 +252,87 @@
 
     <section class="my-3 mx-4">
       <div class="container">
+        <h3 class="text-dark mb-3">Understanding United States Contracts</h3>
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Introduction here... talk about USA contracts, how many, the types,
-            how they are issued, what are subcontracts, etc...
+            In 2006, the Federal Funding Accountability and Transparency Act was
+            signed into law and required that federal contract, loan, and other
+            financial assistance awards of more than $25,000 be displayed on a
+            publicly accessible and searchable website to give the American
+            people access to information on how their tax dollars were being
+            spent. Through a wide variety of processes, the US government
+            ensures the quality of the data sourced through multiple internal
+            data systems. Here, the focus is looking at the investments made by
+            the government through contracts and the subsequent investments in
+            subcontracts. Contracts are an agreement creating mutual obligations
+            between parties that is enforceable by law. Government contracts
+            specifically are contracts between the US government and businesses
+            that "obligate the seller to provide the supplied or serivces
+            (including construction) and the buyer (the US Government) to pay
+            for them" (USA Spending).
           </div>
         </div>
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Discuss use case, who might use this dashboard (Raytheon/owner of
-            the contract/Department of defense)
+            In a recent executive order from the Biden Administration,
+            cybersecurity standards for United States defense contracts became
+            much more rigorous. However, according to an article in CPO Magazine
+            (insert link), "a survey of 300 small-to-medium business defense
+            contractors found common failures to comply with CMMC requirements,
+            with 48% having severse vunerabiltiies" (CPO). This is extremely
+            concerning on the National Security front, where not only does the
+            US governmnent need to worrty about themselves being vunerabvle to
+            cyber attacks, but they also need to worry about their defense
+            contractors being vunerable. Recently, a list of critical and
+            emerging technologies was announced by the Fast Track Action
+            Subcommittee on Critical and Emerging Technologies (CETs) of the
+            National Science and Technology Council. This list included
+            Artificial Intelligence, Biotechnologies, Quantum Information
+            Technologies, and Hypersonics. In particular, hypersonics, is of
+            great interest to the Department of Defense. Hypersonics generally
+            applies to weapons that travel in excess of five times the speed of
+            sound and are hard to stop. Combining these concerns and national
+            security interests, the National Security Agency is prioritizing new
+            methods of determining contractors that are critical in the supply
+            chain and therefore need to boost their cybersecurity protection.
           </div>
         </div>
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Transition to the single contract, who is the contractor, what was
-            the contract about, what are hypersonic missles
+            There are two steps to determining the businesses that need to
+            prioritize improving their cybersecurity protection. First, a list
+            of all of the recent contracts and contractors needs to be filtered
+            down to only those that provide a specific type of technologies
+            (based on the CETs). Second, for every contractor, a list of
+            subcontractors must be retrieved and filtered down to only those
+            that supply specific capabilties or products to the prime
+            contractor. In the following analysis, the focus is primarily on the
+            second step.
+          </div>
+        </div>
+        <h3 class="text-dark my-3">Visualizing Subcontracts</h3>
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            In 2016, the Department of Defense awarded a contract to Raytheon
+            for the second phase of the Hypersonic Air-Breathing Weapon Concept.
+            Raytheon is one of the largest "aerospace, intellegence services
+            providers, and defense manufacturers in the world". According to the
+            USA Spending website, they have been awarded over $4.7 billion in
+            contracts, primarily from the Department of Defense, and primarily
+            for products like guided missles and bombs
+            (https://www.usaspending.gov/recipient/01c4a3a3-b4c5-ce4e-822b-d17f09985001-C/latest).
+            Clearly, from the contract description and the company that was
+            awarded the contract, Raytheon is an important company that the US
+            government should have a vested interest in protecting from
+            cybersecurity threats. However, according to the contract, there are
+            348 subcontractors that supply products and services to Raytheon,
+            but it is not yet clear which subcontractors should be prioritized
+            in the same way that Raytheon will be. The following sections will
+            visualize the subcontractor data in such a way so that it will
+            become clear which subcontractors are more important in the supply
+            chain. First, in <b>Figure 1</b>, a very basic timeline shows the
+            Raytheon contract and a couple of subcontracts awarded around the
+            time of the official contract.
           </div>
         </div>
       </div>
@@ -284,7 +349,8 @@
               <span style="color: black">
                 Figure 1: A timeline of the Raytheon contract, including
                 information on when the contract was issued, when the contract
-                ended, and important dates including large subcontracts.
+                ended, and important dates including expensive subcontracts and
+                important suppliers.
               </span>
             </figcaption>
           </div>
@@ -296,17 +362,30 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Discuss the second timeline, understand what the large set of
-            expensive subcontracts are for, why they were issued in advanced,
-            perhaps does this mean the subcontractor is important
+            Using the above timeline, there are a number of important dates and
+            subcontracts that stood out immeditely when looking at the data
+            manually from a high level. First, the Raytheon contract started in
+            October of 2016 and ended as of March 2022. Before the contract was
+            awarded, a number of large subcontracts were awarded to Alliant
+            TechSystems, which upon closer inspection and further research, is
+            tied to Northrup Grumman, a well known American aerospace and
+            defense company. These subcontracts turn out to be far larger than
+            any of the other subcontracts, so this is the first indication that
+            this subcontractor is important. Lastly, after doing a brief search
+            through the subcontracts, there is a clear indication that some of
+            these business provide critical supplies for building hypersonic
+            devices. Two subcontracts are shown, one that provides batteries
+            (ATB) and one that provides accelerometers and cables (Dytran).
           </div>
         </div>
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Now that we have grasped an understanding of the timeline, we can
-            see that many of the large contracts were issues up front, but how
-            were they funded? Let's take another look at funding, this time
-            using a simple sunburst chart
+            To dive deeper into the timeline and get our first sense of all of
+            the subcontracts, a second timeline chart shows the dates when a
+            contract or multiple contracts were awarded by Raytheon. To explore
+            this visualization, click on one of the orange dots. It will show a
+            second chart with information on all of the contracts awarded on
+            that date.
           </div>
         </div>
       </div>
@@ -344,16 +423,29 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Discuss the timeline, talk about how it is important to understand
-            the timeline to get a better sense of the data for the contract.
-            (reference Figure 1)
+            In Figure 2, the viewer gets the first taste of the progression all
+            of the subcontracts awarded during the time of the Raytheon
+            contract. This progression could be tracable to the steps for
+            producing the hypersonic missles. For example, the earlier
+            subcontracts would be important as they are supplying parts for the
+            missles, while the later subcontracts would be for testing and
+            validation purposes.
           </div>
         </div>
+        <h4 class="text-dark my-3">Exploring Subcontract Funding</h4>
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Now, transition into discussing the subcontracts, funding, over
-            time, give the user some direction, but let them explore the
-            contracts further.
+            After looking at the timeline and a brief preview of the
+            subcontracts, it seems that two pathes should be taken to determine
+            the importance of a subcontract. One indication could be the cost of
+            the subcontract. Outlying subcontracts that cost far more than other
+            subcontracts could be a good indicator. Secondly, contracts that
+            supply specific parts that are used to build hypersonic missles are
+            equally important. First, let's take a closer look at well funded
+            subcontracts. A high level, hierarchical visualization of all of the
+            subcontracts and their associated costs is seen in Figure 2. To
+            explore this visualization, click on any of the inner slices of the
+            chart to get a breakdown of costs.
           </div>
         </div>
       </div>
@@ -419,26 +511,41 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Discuss the first sunburst chart, talk about the importance of the
-            alliant techsystems, background to what they do, they must be
-            important
+            First, in <b>Figure 3</b>, it is important to note the flow of
+            funding. At the heart of the chart, the Department of Defense is
+            overseeing the contract. Outside of the Department of Defense, there
+            are two specific federal accounts that provide the funding to
+            Raytheon: DARPA and DCMA. Both of these federal accounts seem to
+            have similar purposes, but in the grand scheme of US contracts,
+            perhaps it would be prudent to keep track of the federal accounts
+            that fund these contracts. In <b>Figure 3</b>, it is clear from the
+            onset that Alliant Techsystems is the most well funded
+            subcontractor. As Alliant Techsystems was a large aerospace and
+            defense company before being aquired by Northrup Gromman, this makes
+            sense.
           </div>
         </div>
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Talk about limitations of this chart, missing focus on the other
-            contracts. It might be easier to understand the relative funding
-            sizes of the other contracts by removing alliant techsystems from
-            the view. See Figure 4 in the Filtered contract funding tab
+            However, a limitation of this chart is that Alliant Techsystems is
+            so large, it overwelms the rest of the subcontracts to the point
+            where it is unclear how large they are. It would be much easier to
+            visualize the relative funding size of the rest of the subcontracts
+            by filtering out Alliant Techsystems from the chart. To see this
+            filtered visualization <b>(Figure 4)</b>, click on the tab labeled
+            "Filtered Contract Funding".
           </div>
         </div>
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Talk about the filtered contract funding, which contracts have
-            slightly larger funding, could be important, worth exploring
-            further, especially to understand what the contracts do
-            specifically. Transition to next viz concerning the networks between
-            the contract and subcontracts, explain this viz
+            In <b>Figure 4</b>, it is much easier to see the relative size of
+            the subcontracts. By clicking on the inner slices, it becomes
+            clearer that subcontractors such as Orbital Sciences, Pacific
+            Scientific, and Ensign Bickford have relatively large subcontracts.
+            These larger subcontracts seem important, but it would be helpful to
+            understand what the subcontracts were for. In the next
+            visualization, <b>Figure 5</b>, a better idea of the details of
+            these subcontracts can be seen.
           </div>
         </div>
       </div>
