@@ -72,7 +72,7 @@
       networkgraph: {
         keys: ["from", "to"],
         layoutAlgorithm: {
-          enableSimulation: true,
+          enableSimulation: false,
         },
       },
     },
