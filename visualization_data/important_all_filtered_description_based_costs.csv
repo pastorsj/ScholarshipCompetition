@@ -1,0 +1,36 @@
+"id","name","description","extracted_words","cost","type","scaled_radius"
+"34","Explosive Cut Device, NRE - Engineering, NRE - Other.","Explosive Cut Device, NRE - Engineering, NRE - Other.","Explosive","1147265","subcontract",10
+"35","Explosive Cut Device, NRE - Engineering, NRE - Other.","Explosive Cut Device, NRE - Engineering, NRE - Other.","Explosive","1147265","subcontract",10
+"36","Couplers, Gen Structural Assys, NRE - Other, Nuts.","Couplers, Gen Structural Assys, NRE - Other, Nuts.","Nuts","932473","subcontract",10
+"37","Couplers, Gen Structural Assys, NRE - Other, Nuts.","Couplers, Gen Structural Assys, NRE - Other, Nuts.","Nuts","932473","subcontract",10
+"43","Encoders, NRE - Other.","Encoders, NRE - Other.","Encoders","893366","subcontract",10
+"44","Encoders, NRE - Other.","Encoders, NRE - Other.","Encoders","893366","subcontract",10
+"56","NRE - Data Items, NRE - Engineering, NRE - Qualification, Pumps, Tech/Eng Services.","NRE - Data Items, NRE - Engineering, NRE - Qualification, Pumps, Tech/Eng Services.","Pumps","620396","subcontract",10
+"59","Gen Structural Assys, NRE - Other, Valves.","Gen Structural Assys, NRE - Other, Valves.","Valves","509049","subcontract",10
+"60","Gen Structural Assys, NRE - Other, Valves.","Gen Structural Assys, NRE - Other, Valves.","Valves","509049","subcontract",10
+"78","NRE - Data Items, NRE - Engineering, NRE - Qualification, Pumps, Tech/Eng Services.","NRE - Data Items, NRE - Engineering, NRE - Qualification, Pumps, Tech/Eng Services.","Pumps","401171","subcontract",10
+"100","Explosive Cut Device.","Explosive Cut Device.","Explosive","230580","subcontract",10
+"101","Explosive Cut Device.","Explosive Cut Device.","Explosive","230580","subcontract",10
+"195","Gears, Precision Machined.","Gears, Precision Machined.","Gears","100232","subcontract",10
+"196","Gears, Precision Machined.","Gears, Precision Machined.","Gears","100232","subcontract",10
+"250","Transmitters.","Transmitters.","Transmitters","66325","subcontract",10
+"251","Transmitters.","Transmitters.","Transmitters","66325","subcontract",10
+"294","Fasteners & Hardware.","Fasteners & Hardware.","Fasteners","47883","subcontract",10
+"295","Fasteners & Hardware.","Fasteners & Hardware.","Fasteners","47883","subcontract",10
+"300","Shafts.","Shafts.","Shafts","46830","subcontract",10
+"312","Encoders.","Encoders.","Encoders","41145","subcontract",10
+"313","Encoders.","Encoders.","Encoders","41145","subcontract",10
+"314","Clamps, Washers.","Clamps, Washers.","Washers","40618","subcontract",10
+"315","Clamps, Washers.","Clamps, Washers.","Washers","40618","subcontract",10
+"328","Encoders.","Encoders.","Encoders","31846","subcontract",10
+"329","Encoders.","Encoders.","Encoders","31846","subcontract",10
+"RAYTHEON COMPANY","RAYTHEON COMPANY","IGF::OT::IGF HYPERSONIC AIR-BREATHING WEAPON CONCEPT (HAWC) PHASE 2","","174746702","contractee",50
+"A. P. I. INCORPORATED","A. P. I. INCORPORATED","A. P. I. INCORPORATED","","81236","subawardee",10
+"ALLCOMP INC.","ALLCOMP INC.","ALLCOMP INC.","","95766","subawardee",10
+"EMOTEQ CORPORATION","EMOTEQ CORPORATION","EMOTEQ CORPORATION","","46830","subawardee",10
+"JANSEN'S AIRCRAFT SYSTEMS CONTROLS, INC.","JANSEN'S AIRCRAFT SYSTEMS CONTROLS, INC.","JANSEN'S AIRCRAFT SYSTEMS CONTROLS, INC.","","1018098","subawardee",10
+"L3 TECHNOLOGIES, INC.","L3 TECHNOLOGIES, INC.","L3 TECHNOLOGIES, INC.","","1932714","subawardee",10
+"PACIFIC SCIENTIFIC ENERGETIC MATERIALS COMPANY (CALIFORNIA) LLC","PACIFIC SCIENTIFIC ENERGETIC MATERIALS COMPANY (CALIFORNIA) LLC","PACIFIC SCIENTIFIC ENERGETIC MATERIALS COMPANY (CALIFORNIA) LLC","","4620636","subawardee",11
+"PARKER-HANNIFIN CORPORATION","PARKER-HANNIFIN CORPORATION","PARKER-HANNIFIN CORPORATION","","1021567","subawardee",10
+"QUASONIX, LLC","QUASONIX, LLC","QUASONIX, LLC","","132650","subawardee",10
+"SOUTHERN GEAR & MACHINE, INC.","SOUTHERN GEAR & MACHINE, INC.","SOUTHERN GEAR & MACHINE, INC.","","200464","subawardee",10
