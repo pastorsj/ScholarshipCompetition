@@ -1,8 +1,8 @@
 (async () => {
-  window.useLocalData = true;
+  // window.useLocalData = true;
   const url = window.useLocalData
     ? "http://localhost:8080"
-    : "https://s3.amazonaws.com/datastore.portfolio.sampastoriza.com";
+    : "https://s3.amazonaws.com/sjp114";
 
   // Fetch data from AWS S3
   const parsedData = await fetch(
