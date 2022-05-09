@@ -602,22 +602,19 @@ important.filtered.contracts.df <- description.filtered.contracts.df %>%
 ### Recreate subcontract network (Important)
 ```{r}
 top.description.based.subcontracts.df <- important.filtered.contracts.df %>%
-  filter(number_of_words == 1) %>%
   group_by(subawardee_name) %>%
   summarize(NumberOfContracts = n(),
             TotalCostOfAllContracts = sum(subaward_amount)) %>%
   arrange(desc(TotalCostOfAllContracts))
 
 second.description.based.layer <- important.filtered.contracts.df %>%
-  filter(number_of_words == 1) %>%
   select(subcontract_id, subawardee_name) %>%
   filter(subawardee_name %in% top.description.based.subcontracts.df$subawardee_name) %>%
   mutate(from = as.character(subcontract_id),
          to = as.character(subawardee_name)) %>%
   select(from, to)
 
-first.description.based.layer <- important.filtered.contracts.df %>%
-  filter(number_of_words == 1) %>%
+first.description.based.layer <- important.filtered.contracts.df %>% 
   select(subcontract_id, prime_awardee_name) %>%
   filter(subcontract_id %in% second.description.based.layer$from) %>%
   mutate(from = as.character(prime_awardee_name),
@@ -627,10 +624,9 @@ first.description.based.layer <- important.filtered.contracts.df %>%
 write.csv(do.call('rbind', list(first.description.based.layer, second.description.based.layer)), "./visualization_data/important_subcontract_description_based_network.csv", row.names = FALSE)
 ```
 
-### Recreate Description Based Cost Nodes (Nodes = 1)
+### Recreate Description Based Cost Nodes (Important)
 ```{r}
 all.filtered.description.based.costs.df <- important.filtered.contracts.df %>%
-  filter(number_of_words == 1) %>%
   select(subcontract_id, subaward_description, extracted_words, subaward_amount) %>%
   rename(id = subcontract_id,
          description = subaward_description,
@@ -647,7 +643,6 @@ all.filtered.description.based.costs.df[nrow(all.filtered.description.based.cost
                                                                                                  'contractee')
 
 all.filtered.description.based.subcontracters.df <- important.filtered.contracts.df %>%
-  filter(number_of_words == 1) %>%
   select(subawardee_name, subaward_amount) %>%
   group_by(subawardee_name) %>%
   summarize(cost = sum(subaward_amount)) %>%

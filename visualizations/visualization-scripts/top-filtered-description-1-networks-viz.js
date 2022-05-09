@@ -72,7 +72,7 @@
       networkgraph: {
         keys: ["from", "to"],
         layoutAlgorithm: {
-          enableSimulation: false,
+          enableSimulation: true,
         },
       },
     },
@@ -101,18 +101,22 @@
         };
       },
       formatter: function () {
-        return (
-          `<div style="text-align: center"><b>${this.point.custom.type}</b></div><hr />` +
-          (!!this.point.custom.name
-            ? `<div style="width: 200px; white-space: pre-wrap;"><b>Name:</b> ${this.point.custom.name}</div><hr />`
-            : "") +
-          (!!this.point.custom.description
-            ? `<div style="width: 200px; white-space: pre-wrap;"><b>Description:</b> ${this.point.custom.description}</div><hr />`
-            : "") +
-          (this.point.custom.cost > 0
-            ? `<b>Cost:</b> \$${this.point.custom.cost.toLocaleString("en-US")}`
-            : "")
-        );
+        if (this.point) {
+          return (
+            `<div style="text-align: center"><b>${this.point.custom.type}</b></div><hr />` +
+            (!!this.point.custom.name
+              ? `<div style="width: 200px; white-space: pre-wrap;"><b>Name:</b> ${this.point.custom.name}</div><hr />`
+              : "") +
+            (!!this.point.custom.description
+              ? `<div style="width: 200px; white-space: pre-wrap;"><b>Description:</b> ${this.point.custom.description}</div><hr />`
+              : "") +
+            (this.point.custom.cost > 0
+              ? `<b>Cost:</b> \$${this.point.custom.cost.toLocaleString(
+                  "en-US"
+                )}`
+              : "")
+          );
+        }
       },
     },
   });

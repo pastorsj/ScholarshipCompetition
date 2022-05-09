@@ -1,4 +1,8 @@
 "id","name","description","extracted_words","cost","type","scaled_radius"
+"1","Detonator&Initiator, Fuselage, Gen Structural Assys, Molded Rubber&O Ring, Non-complex Machined, NRE - Other, Seals, Tech/Eng Services, Wire Cable.","Detonator&Initiator, Fuselage, Gen Structural Assys, Molded Rubber&O Ring, Non-complex Machined, NRE - Other, Seals, Tech/Eng Services, Wire Cable.","Detonator,Fuselage,Rubber,Seals,Wire,Cable","62696821","subcontract",24
+"2","Detonator&Initiator, Fuselage, Gen Structural Assys, Molded Rubber&O Ring, Non-complex Machined, NRE - Other, Seals, Tech/Eng Services, Wire Cable.","Detonator&Initiator, Fuselage, Gen Structural Assys, Molded Rubber&O Ring, Non-complex Machined, NRE - Other, Seals, Tech/Eng Services, Wire Cable.","Detonator,Fuselage,Rubber,Seals,Wire,Cable","60448995","subcontract",24
+"29","FinsWings&Boattails, NRE - Other, Pyrotechnic Fuses, Rocket Motors.","FinsWings&Boattails, NRE - Other, Pyrotechnic Fuses, Rocket Motors.","Pyrotechnic,Fuses,Rocket,Motors","1935479","subcontract",10
+"30","FinsWings&Boattails, NRE - Other, Pyrotechnic Fuses, Rocket Motors.","FinsWings&Boattails, NRE - Other, Pyrotechnic Fuses, Rocket Motors.","Pyrotechnic,Fuses,Rocket,Motors","1935479","subcontract",10
 "34","Explosive Cut Device, NRE - Engineering, NRE - Other.","Explosive Cut Device, NRE - Engineering, NRE - Other.","Explosive","1147265","subcontract",10
 "35","Explosive Cut Device, NRE - Engineering, NRE - Other.","Explosive Cut Device, NRE - Engineering, NRE - Other.","Explosive","1147265","subcontract",10
 "36","Couplers, Gen Structural Assys, NRE - Other, Nuts.","Couplers, Gen Structural Assys, NRE - Other, Nuts.","Nuts","932473","subcontract",10
@@ -13,8 +17,12 @@
 "101","Explosive Cut Device.","Explosive Cut Device.","Explosive","230580","subcontract",10
 "195","Gears, Precision Machined.","Gears, Precision Machined.","Gears","100232","subcontract",10
 "196","Gears, Precision Machined.","Gears, Precision Machined.","Gears","100232","subcontract",10
+"203","Bolts, Launchers&Cannisters.","Bolts, Launchers&Cannisters.","Bolts,Launchers","91214","subcontract",10
+"204","Bolts, Launchers&Cannisters.","Bolts, Launchers&Cannisters.","Bolts,Launchers","91214","subcontract",10
 "250","Transmitters.","Transmitters.","Transmitters","66325","subcontract",10
 "251","Transmitters.","Transmitters.","Transmitters","66325","subcontract",10
+"253","Missile Antenna &Ped.","Missile Antenna &Ped.","Missile,Antenna","66160","subcontract",10
+"254","Missile Antenna &Ped.","Missile Antenna &Ped.","Missile,Antenna","66160","subcontract",10
 "294","Fasteners & Hardware.","Fasteners & Hardware.","Fasteners","47883","subcontract",10
 "295","Fasteners & Hardware.","Fasteners & Hardware.","Fasteners","47883","subcontract",10
 "300","Shafts.","Shafts.","Shafts","46830","subcontract",10
@@ -24,10 +32,16 @@
 "315","Clamps, Washers.","Clamps, Washers.","Washers","40618","subcontract",10
 "328","Encoders.","Encoders.","Encoders","31846","subcontract",10
 "329","Encoders.","Encoders.","Encoders","31846","subcontract",10
+"334","AC-DC Power Supplies, Adaptors, Backshells, CableAssy&HarnMulti, Chargers, Custom - Computer SW, Filter Pin Connector, Flex Assy(w/Connect), Lithium Batteries, Microprocessors.","AC-DC Power Supplies, Adaptors, Backshells, CableAssy&HarnMulti, Chargers, Custom - Computer SW, Filter Pin Connector, Flex Assy(w/Connect), Lithium Batteries, Microprocessors.","Adaptors,Cable,Chargers,Computer,Connector,Lithium,Batteries","31429","subcontract",10
+"335","AC-DC Power Supplies, Adaptors, Backshells, CableAssy&HarnMulti, Chargers, Custom - Computer SW, Filter Pin Connector, Flex Assy(w/Connect), Lithium Batteries, Microprocessors.","AC-DC Power Supplies, Adaptors, Backshells, CableAssy&HarnMulti, Chargers, Custom - Computer SW, Filter Pin Connector, Flex Assy(w/Connect), Lithium Batteries, Microprocessors.","Adaptors,Cable,Chargers,Computer,Connector,Lithium,Batteries","31429","subcontract",10
 "RAYTHEON COMPANY","RAYTHEON COMPANY","IGF::OT::IGF HYPERSONIC AIR-BREATHING WEAPON CONCEPT (HAWC) PHASE 2","","174746702","contractee",50
 "A. P. I. INCORPORATED","A. P. I. INCORPORATED","A. P. I. INCORPORATED","","81236","subawardee",10
-"ALLCOMP INC.","ALLCOMP INC.","ALLCOMP INC.","","95766","subawardee",10
+"AEROJET ROCKETDYNE, INC.","AEROJET ROCKETDYNE, INC.","AEROJET ROCKETDYNE, INC.","","3870958","subawardee",11
+"ALLCOMP INC.","ALLCOMP INC.","ALLCOMP INC.","","228086","subawardee",10
+"ALLIANT TECHSYSTEMS OPERATIONS LLC","ALLIANT TECHSYSTEMS OPERATIONS LLC","ALLIANT TECHSYSTEMS OPERATIONS LLC","","123145816","subawardee",38
+"DIVERSIFIED TECHNICAL SYSTEMS, INC.","DIVERSIFIED TECHNICAL SYSTEMS, INC.","DIVERSIFIED TECHNICAL SYSTEMS, INC.","","62858","subawardee",10
 "EMOTEQ CORPORATION","EMOTEQ CORPORATION","EMOTEQ CORPORATION","","46830","subawardee",10
+"HI-TECH MACHINING & ENGINEERING, L.L.C.","HI-TECH MACHINING & ENGINEERING, L.L.C.","HI-TECH MACHINING & ENGINEERING, L.L.C.","","182428","subawardee",10
 "JANSEN'S AIRCRAFT SYSTEMS CONTROLS, INC.","JANSEN'S AIRCRAFT SYSTEMS CONTROLS, INC.","JANSEN'S AIRCRAFT SYSTEMS CONTROLS, INC.","","1018098","subawardee",10
 "L3 TECHNOLOGIES, INC.","L3 TECHNOLOGIES, INC.","L3 TECHNOLOGIES, INC.","","1932714","subawardee",10
 "PACIFIC SCIENTIFIC ENERGETIC MATERIALS COMPANY (CALIFORNIA) LLC","PACIFIC SCIENTIFIC ENERGETIC MATERIALS COMPANY (CALIFORNIA) LLC","PACIFIC SCIENTIFIC ENERGETIC MATERIALS COMPANY (CALIFORNIA) LLC","","4620636","subawardee",11

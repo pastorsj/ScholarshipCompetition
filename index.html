@@ -325,14 +325,15 @@
             awarded the contract, Raytheon is an important company that the US
             government should have a vested interest in protecting from
             cybersecurity threats. However, according to the contract, there are
-            348 subcontractors that supply products and services to Raytheon,
-            but it is not yet clear which subcontractors should be prioritized
-            in the same way that Raytheon will be. The following sections will
-            visualize the subcontractor data in such a way so that it will
-            become clear which subcontractors are more important in the supply
-            chain. First, in <b>Figure 1</b>, a very basic timeline shows the
-            Raytheon contract and a couple of subcontracts awarded around the
-            time of the official contract.
+            348 subcontracts spanning across 79 unique subcontractors that
+            supply products and services to Raytheon, but it is not yet clear
+            which subcontractors should be prioritized in the same way that
+            Raytheon will be. The following sections will visualize the
+            subcontractor data in such a way so that it will become clear which
+            subcontractors are more important in the supply chain. First, in
+            <b>Figure 1</b>, a very basic timeline shows the Raytheon contract
+            and a couple of subcontracts awarded around the time of the official
+            contract.
           </div>
         </div>
       </div>
@@ -635,9 +636,11 @@
             <i>Cost Plus Fixed Fee</i>. Next, the network clearly shows the Top
             8 funded subcontractors. By looking at each of these subcontractors
             and their subcontracts, many of the subcontractors have a similar
-            sounding subcontractors, which provide little information. However,
-            upon closer inspection, one subcontractor stands out.
-            <b>Aerojet Rocketdyne Inc</b> has subcontracts for wings, fuses,
+            sounding subcontractors, which provide little information.
+            <b
+              >However, upon closer inspection, one subcontractor stands out.</b
+            >
+            Aerojet Rocketdyne Inc has subcontracts for wings, fuses,
             propulsion, and rocket motors. A highly funded contract for a
             business that makes parts specifically for hypersonic missles
             certainly stands out.
@@ -827,6 +830,29 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
+            In Figure 9, the network shows the set of subcontractors that
+            produce only a single item according to their subcontract's
+            description. This network gives us the first view into which
+            subcontracts could be considered more important than others, and by
+            proxy, which subcontractors would be a cybersecurity risk.
+            Everything behaves in a similar way to the previous networks,
+            however, the blue triangles, representing the subcontracts, show the
+            keywords found in their respective descriptions. This helps the
+            viewer get a sense of each of the subcontractors and what they
+            supply. All of these subcontractors stand out as they only supply
+            one type of product to Raytheon, so one might suppose that all of
+            them should be prioritized highly. However, there are many
+            subcontractors in this network, so it would be helpful to continue
+            to filter them down.
+            <b
+              >An important observation that can be made in Figure 9 is that
+              some of these subcontractors are unique in what they produce. For
+              example, Southern Gear & Machine seem to be the only subcontractor
+              that produces gears. This is considered a single point of
+              failure.</b
+            >
+            Perhaps by filtering down to those that produce distinct products, a
+            clearer view of the most important subcontractors can be seen.
             Discuss findings in the network. Theorize that some of the
             subcontracts are far more important, and using this network, we can
             see which subcontracts provide which. this allows Raytheon to single
@@ -836,8 +862,11 @@
         </div>
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Finally, show the network of subcontractors that supply more than
-            one thing. These subcontractors are important...
+            Before transitioning to the final, filtered down network, a second
+            network in Figure 10 shows all of the subcontractors producing more
+            than one product. Subcontractors in this network are important
+            because they produce so many products for Raytheon, so losing them
+            to a cybersecurity could slow down production significantly.
           </div>
         </div>
       </div>
@@ -867,11 +896,26 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Discuss findings in the network. Theorize that some of the
-            subcontracts are far more important, and using this network, we can
-            see which subcontracts provide which. this allows Raytheon to single
-            out their subcontrators they believe are more important when it
-            comes to single supply.
+            Figure 10 shows the network of subcontractors that produce more than
+            one product that is critical to the supply chain. A cybersecurity
+            attack on one of these companies would certain slow production down
+            as multiple types of parts critical to producing hypersonic missles
+            would stop being supplied temperarily. However, from this
+            visualization, it is not clear that any of these companies are
+            single points of failure, and while they are important to completing
+            the contract, they may not be as important as some of the companies
+            mentioned previously. However, similar to the point made previously,
+            it is possible these subcontractors produce a product that is unique
+            across all subcontractors, so creating a visualization that shows a
+            filtered version of subcontractors would be illuminating.
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            Finally, Figure 11 shows a network of subcontractors that, according
+            to their description, produce a unique product across all
+            subcontractors. From this network, it is clear that 13
+            subcontractors, shown in red squares, stand out.
           </div>
         </div>
       </div>
@@ -900,8 +944,30 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Discuss final findings from this network. These are the companies
-            that should be prioritized...
+            Figure 11 is a culmination of all of the previous ideas shown in
+            Figures 7-10. Figure 11 shows a network of 13 subcontractors that
+            produce a unique product according to the description of their
+            subcontract. As previously hypothesized, Southern Gear & Machine was
+            indeed the only company to produce gears, and thus should be
+            considered a single point of failure. However, there are many more.
+            Emoteq produces shafts, API produces washers, and L3 produces
+            encoders. Additionally, the subcontractors that produce multiple
+            products are included if one of those products is unique across all
+            subcontractors. For example, Alliant TechSystems is the only
+            producer of fuselages and detonators, while Aerojet Rocketdyne seems
+            to be the only producer of pyrotechnics and rockets.
+            <b
+              >However, the most important observation to be made happens while
+              exploring this network. Out of the 13 subcontractors, 2
+              subcontractors stand out.</b
+            >
+            AllComp Inc has different sets of subcontracts for two different and
+            unique products. One set of subcontracts are for fasteners and one
+            are for missles and antenna. Next, Pacific Scientific Energetic
+            Material Company has two sets of subcontracts, one set for
+            explosives and one set for nuts. These two subcontractors should be
+            considered the most important across all subcontractors and most
+            vunerable to a cybersecurity incident.
           </div>
         </div>
       </div>
@@ -909,16 +975,52 @@
 
     <section class="my-3 mx-4">
       <div class="container">
+        <h3 class="text-dark my-3">Overall Findings and Further Exploration</h3>
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Discuss overall findings in terms of funding and descriptions of the
-            contracts.
+            Two methods were utilized to attempt to prioritize a list of 79
+            subcontractors in order of most important in the supply chain. The
+            first method, finalized in Figure 6, explored the subcontract
+            funding and theorized that higher funded subcontracts were more
+            important to the main contractor versus other contractors.
+            Subcontractors like Alliant Techsystems are clearly more important
+            when Raytheon awarded them multiple subcontracts worth 5-10 times
+            more than any other subcontract awarded to the rest of the
+            subcontractors. It was not clear what each of the subcontracts for
+            Alliant Techsystems was for, but investing that much capital into
+            that many subcontractors is a clear outlier. Regardless of what each
+            subcontract is for, Alliant Techsystems should be targeted for more
+            protection against cybersecurity attacks.
           </div>
         </div>
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Propose steps going forward, any limitations, any future
-            exploration.
+            The second method utilized the description of each of the
+            subcontracts to narrow the focus on subcontractors that produced
+            unqiue products critical to the supply chain. The final iteration,
+            shown in Figure 11, shows a set of 13 subcontractors that are
+            critical to the supply chain. Two of these subcontractors, AllComp
+            Inc and Pacific Scientific Energetic Material Company have multiple
+            different contracts for different types of unique product. These two
+            subcontractors should be targeted for more protection against
+            cybersecurity attacks.
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            In this analysis, 3 subcontractors were chosen out of 79 total.
+            Using this analysis, the US government should focus their efforts on
+            these three companies specifically. However, they should not lose
+            sight of the rest of these subcontractors. Going forward, there are
+            many subcontractors in this contract that should be considered high
+            priority and are single points of failures, whether the description
+            of the contract says that or not. A simple table that prioritizes
+            each of the subcontractors based on multiple criteria like funding
+            and the product they supply would give an excellent view the
+            cybersecurity priority level. A viewer would find it helpful to have
+            one table ordering all subcontractors by priority level with an
+            explanation behind the order being automatically genereted through
+            the code powering these visulaizations.
           </div>
         </div>
       </div>
