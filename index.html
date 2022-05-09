@@ -590,8 +590,8 @@
               <figcaption>
                 <span style="color: black">
                   Figure 5: This plot shows the network between the contractor
-                  (Raytheon), the subcontracts (show in blue triangles), and the
-                  subcontractors.
+                  (Raytheon), the subcontracts (shown with blue triangles), and
+                  the subcontractors (shown with red squares).
                 </span>
               </figcaption>
             </div>
@@ -616,26 +616,94 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Discuss the network at a high level, this is the first pass, come to
-            similar conclusions about alliant, but also note the filtered
-            version of the network shows a couple of things. First, it gives you
-            a sense of the most best funded contracts, but it also gives you a
-            sense of the subcontracts and the description of the subcotnracts,
-            and how much they cost.
+            In <b>Figure 5</b>, a network shows the relationship between the
+            main contractor (Raytheon), the subcontracts, and the
+            subcontractors. In most cases, a subcontractor will have more than
+            one subcontract with Raytheon. The network in <b>Figure 5</b> shows
+            this relationship between the main contractor, represented by the
+            green circle, the subcontractors, represented by the red squares,
+            through contracts represented by blue triangles. The size of each
+            entity in the network is relative to the funding of each entity. To
+            discover more information on each of the contracts, a viewer can
+            hover over the any of the nodes in the network to learn more.
+          </div>
+          <div class="col-lg-11 mx-auto my-1">
+            Using the network above, it is clear again that Alliant Techsystems
+            is the predominat subcontractor for this contract. However, by
+            hovering over each of their subcontracts, it isn't clear what
+            services they provide as most of the contracts descriptions are
+            <i>Cost Plus Fixed Fee</i>. Next, the network clearly shows the Top
+            8 funded subcontractors. By looking at each of these subcontractors
+            and their subcontracts, many of the subcontractors have a similar
+            sounding subcontractors, which provide little information. However,
+            upon closer inspection, one subcontractor stands out.
+            <b>Aerojet Rocketdyne Inc</b> has subcontracts for wings, fuses,
+            propulsion, and rocket motors. A highly funded contract for a
+            business that makes parts specifically for hypersonic missles
+            certainly stands out.
           </div>
         </div>
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Talk about limitations of this network again, focus on the non cost
-            plus fixed fee contracts at least! Move to next viz in tab
+            There are clear limitations in the network created in Figure 5. It
+            seems that most of the highly funded contracts are described as
+            <i>Firm Fixed Price</i> or <i>Cost Plus Fixed Fee</i>. Considering
+            the scope of the data set, no amount of data analysis provide any
+            more information about these contracts, so perhaps filtering these
+            types of contracts out could provide better insights. It is
+            important not to throw away these contracts as unimportant, but to
+            gain more clarity and narrow the focus of this search, filtering out
+            these types of contracts is a logical next step.
           </div>
         </div>
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Talk about next in tab, discuss potential findings in terms of
-            funding, but also descriptions. Transition to how descriptions of
-            subcontracts actually are very important when determining
-            cybersecurity risk
+            By click on the next tab, <b>Figure 6</b> shows the filtered version
+            of the subcontracts. Here, it is clearer which companies should be
+            inspected. Alliant Techsystems and Aerojet Rocketdyne are present,
+            but other subcontractors begin to stand out.
+            <b>Dynetics Technical Solutions</b> has large subcontracts for
+            materials (one of the CETs!) and fuselages.
+            <b>L3 Technologies</b> has multiple contracts for encoders. Finally,
+            <b>Ducommun</b> has a large number of contracts for supplies such as
+            cable assemblies and CCAs (Circuit Card Assemblies). By narrowing
+            down the number of subcontractors to 8-10 from a much larger list,
+            it becomes easier to see which should be considered higher priority
+            for a cybersecurity analysis and further protection as an asset to
+            the US governemnt.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-3 mx-4">
+      <div class="container">
+        <h4 class="text-dark my-3">Exploring Subcontract Descriptions</h4>
+        <div class="row">
+          <div class="col-lg-11 mx-auto my-1">
+            After diving into subcontracts and learning more about how contracts
+            were funded, it is clear that well funded subcontracts are
+            important. The contractor that makes large investments in
+            subcontractors clearly sees them as critical assets in completing
+            their contract with the US government. However, not all subcontracts
+            are well funded, but many of those are essential. For example, a
+            subcontract that specifically provided washers would not be
+            expensive relative to subcontracts that provide rocket fuselages,
+            but the former is a critical piece to the end product. Therefore, a
+            second approach is needed to identify critical subcontractors. By
+            utilizing the descriptions of the subcontracts and what is known
+            about hypersonic missles, descriptions that contain certain keywords
+            should be considered more important than others.
+          </div>
+          <div class="row">
+            <div class="col-lg-11 mx-auto my-1">
+              A simple wordcloud can be used to better visualize the types of
+              keywords seen in the descriptions of subcontracts. In
+              <b>Figure 7</b>, the most common keywords are seen in larger text.
+              This indicates more descriptions containing this keyword. From
+              this visualization, some keywords begin to stick out as they
+              relate to the production of hypersonic missles.
+            </div>
           </div>
         </div>
       </div>
@@ -663,18 +731,26 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Discuss the wordcloud at a high level, talk about how it was
-            created, what words are important, especially in context of
-            hypersonic missles.
+            In <b>Figure 7</b>, keywords including batteries, detonator,
+            lauchers, fuses and transmitters (among others) stand out. These are
+            words that description supplies critical to hypersonic missle
+            production. By finding the subcontracts that supply these products,
+            cybersecurity protection efforts can be targetted towards these
+            companies.
           </div>
         </div>
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Next, discuss next steps. These include taking the word cloud,
-            picking the important words out and filtering subcontracts based on
-            that. Next, it is important to understand whether multiple key words
-            are in the subcontracts. Using the words, pick out subcontracts and
-            plot the numer of subcontracts that have each of these words.
+            By filtering subcontracts down to only those that contain keywords
+            associated with the production of hypersonic missle technologies, it
+            becomes clearer which subcontractors are a higher priority. However,
+            after further analysis, there are two types of subcontractors.
+            First, there are subcontractor that provide a single product, such
+            as batteries or explosives. Second, there are contractors that
+            provide more than one product. Depending on the US government's
+            priorities, an argument could be made either way for prioritizing
+            one type of subcontractor versus another. A simple visualization of
+            the subcontracts is seen in the following figure.
           </div>
         </div>
       </div>
@@ -703,17 +779,25 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Discuss the word count chart at a high level. Reason that contracts
-            with multiple word counts are important as they supply more than one
-            thing to Raytheon and therefore could be considered more important.
-            Also reason that subcontracts with single word counts are important
-            as they supply only one thing to Raytheon.
+            Considering the results shown in <b>Figure 8</b>, there are
+            arguments for prioriting cybersecirty efforts for each type of
+            subcontractor. First, subcontractors that provide a single service
+            to the main contractor could be considered a single point of
+            failure. If they are the only subcontractor that provides a critical
+            piece to the production of hypersonic missles, then they should be
+            considered more vunerable to a cybersecurity threat. In contrast, a
+            company that provides multiple different parts to the production of
+            hyopersonics could also be considered vunerable as it would be a
+            major disruption to the supply chain.
           </div>
         </div>
         <div class="row">
           <div class="col-lg-11 mx-auto my-1">
-            Finally, reintroduce the two network viz, the first filtered by
-            single keywords
+            By filtered down the subcontracts to those only containing one
+            keyword, a similar network visualization shows a different set of
+            subcontractors, each with the associated keyword highlighted above
+            the subcontract. <b>Figure 9</b> gives a good sense of the types of
+            subcontracts and the subcontractors associated with them.
           </div>
         </div>
       </div>
