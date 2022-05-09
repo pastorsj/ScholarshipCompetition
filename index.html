@@ -82,6 +82,20 @@
       .highcharts-series-label-0 {
         display: none;
       }
+      .legend-text {
+        margin-left: 3px;
+        font-size: 12px;
+      }
+      .network-container {
+        display: inline-block;
+        width: 90%;
+      }
+      .network-legend {
+        display: inline-block;
+        width: 15%;
+        position: absolute;
+        margin-top: 40px;
+      }
     </style>
   </head>
 
@@ -602,7 +616,37 @@
           <div class="tab-content d-flex justify-content-center w-100">
             <div class="tab-pane my-1 active" id="tab3">
               <figure class="highcharts-figure">
-                <div id="top-networks-container"></div>
+                <div
+                  id="top-networks-container"
+                  class="network-container"
+                ></div>
+                <div class="network-legend">
+                  <div><b>Types of Nodes</b></div>
+                  <div class="legend-item">
+                    <span class="legend-icon">
+                      <svg height="12" width="12">
+                        <circle cx="6" cy="6" r="6" fill="green" />
+                      </svg>
+                    </span>
+                    <span class="legend-text">Contractor</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-icon">
+                      <svg width="12" height="12">
+                        <rect width="12" height="12" style="fill: red" />
+                      </svg>
+                    </span>
+                    <span class="legend-text">Subcontractor</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-icon">
+                      <svg height="12" width="12">
+                        <polygon points="6 1, 12 12, 0 12" fill="lightblue" />
+                      </svg>
+                    </span>
+                    <span class="legend-text">Subcontract</span>
+                  </div>
+                </div>
               </figure>
               <figcaption>
                 <span style="color: black">
@@ -617,7 +661,37 @@
             </div>
             <div class="tab-pane my-1" id="tab4">
               <figure class="highcharts-figure">
-                <div id="top-filtered-networks-container"></div>
+                <div
+                  id="top-filtered-networks-container"
+                  class="network-container"
+                ></div>
+                <div class="network-legend">
+                  <div><b>Types of Nodes</b></div>
+                  <div class="legend-item">
+                    <span class="legend-icon">
+                      <svg height="12" width="12">
+                        <circle cx="6" cy="6" r="6" fill="green" />
+                      </svg>
+                    </span>
+                    <span class="legend-text">Contractor</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-icon">
+                      <svg width="12" height="12">
+                        <rect width="12" height="12" style="fill: red" />
+                      </svg>
+                    </span>
+                    <span class="legend-text">Subcontractor</span>
+                  </div>
+                  <div class="legend-item">
+                    <span class="legend-icon">
+                      <svg height="12" width="12">
+                        <polygon points="6 1, 12 12, 0 12" fill="lightblue" />
+                      </svg>
+                    </span>
+                    <span class="legend-text">Subcontract</span>
+                  </div>
+                </div>
               </figure>
               <figcaption>
                 <span style="color: black">
@@ -837,7 +911,37 @@
         <div class="row">
           <div class="col-lg-11 mx-auto">
             <figure class="highcharts-figure">
-              <div id="top-filtered-description-1-networks-container"></div>
+              <div
+                id="top-filtered-description-1-networks-container"
+                class="network-container"
+              ></div>
+              <div class="network-legend">
+                <div><b>Types of Nodes</b></div>
+                <div class="legend-item">
+                  <span class="legend-icon">
+                    <svg height="12" width="12">
+                      <circle cx="6" cy="6" r="6" fill="green" />
+                    </svg>
+                  </span>
+                  <span class="legend-text">Contractor</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-icon">
+                    <svg width="12" height="12">
+                      <rect width="12" height="12" style="fill: red" />
+                    </svg>
+                  </span>
+                  <span class="legend-text">Subcontractor</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-icon">
+                    <svg height="12" width="12">
+                      <polygon points="6 1, 12 12, 0 12" fill="lightblue" />
+                    </svg>
+                  </span>
+                  <span class="legend-text">Subcontract</span>
+                </div>
+              </div>
             </figure>
             <figcaption>
               <span style="color: black">
@@ -904,7 +1008,37 @@
         <div class="row">
           <div class="col-lg-11 mx-auto">
             <figure class="highcharts-figure">
-              <div id="top-filtered-description-g1-networks-container"></div>
+              <div
+                id="top-filtered-description-g1-networks-container"
+                class="network-container"
+              ></div>
+              <div class="network-legend">
+                <div><b>Types of Nodes</b></div>
+                <div class="legend-item">
+                  <span class="legend-icon">
+                    <svg height="12" width="12">
+                      <circle cx="6" cy="6" r="6" fill="green" />
+                    </svg>
+                  </span>
+                  <span class="legend-text">Contractor</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-icon">
+                    <svg width="12" height="12">
+                      <rect width="12" height="12" style="fill: red" />
+                    </svg>
+                  </span>
+                  <span class="legend-text">Subcontractor</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-icon">
+                    <svg height="12" width="12">
+                      <polygon points="6 1, 12 12, 0 12" fill="lightblue" />
+                    </svg>
+                  </span>
+                  <span class="legend-text">Subcontract</span>
+                </div>
+              </div>
             </figure>
             <figcaption>
               <span style="color: black">
@@ -954,7 +1088,37 @@
         <div class="row">
           <div class="col-lg-11 mx-auto">
             <figure class="highcharts-figure">
-              <div id="important-description-networks-container"></div>
+              <div
+                id="important-description-networks-container"
+                class="network-container"
+              ></div>
+              <div class="network-legend">
+                <div><b>Types of Nodes</b></div>
+                <div class="legend-item">
+                  <span class="legend-icon">
+                    <svg height="12" width="12">
+                      <circle cx="6" cy="6" r="6" fill="green" />
+                    </svg>
+                  </span>
+                  <span class="legend-text">Contractor</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-icon">
+                    <svg width="12" height="12">
+                      <rect width="12" height="12" style="fill: red" />
+                    </svg>
+                  </span>
+                  <span class="legend-text">Subcontractor</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-icon">
+                    <svg height="12" width="12">
+                      <polygon points="6 1, 12 12, 0 12" fill="lightblue" />
+                    </svg>
+                  </span>
+                  <span class="legend-text">Subcontract</span>
+                </div>
+              </div>
             </figure>
             <figcaption>
               <span style="color: black">
